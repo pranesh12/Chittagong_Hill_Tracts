@@ -20,23 +20,23 @@ const About = () => {
             <div className="about_iconlist">
               <div>
                 <i class="far fa-lightbulb"> </i>
-                <span className="m-3">Create ideas</span>
+                <span className="m-3">Discover hill tracts</span>
               </div>
               <div>
                 <i class="fas fa-language"></i>
-                <span className="m-3">Learn Languages</span>
+                <span className="m-3">Learn tribe languages</span>
               </div>
               <div>
                 <i class="fas fa-drafting-compass"></i>
-                <span className="m-3">Draw Picture</span>
+                <span className="m-3">Explore posiblities</span>
               </div>
               <div>
                 <i class="fab fa-wpexplorer"></i>
-                <span className="m-3">Explore Something new</span>
+                <span className="m-3">Explore Something Exciting</span>
               </div>
             </div>
             <div>
-              <button className="btn about_button">More About us</button>
+              <button className="btn about_button"> Contact us</button>
             </div>
           </div>
           <div className="col-md-6">

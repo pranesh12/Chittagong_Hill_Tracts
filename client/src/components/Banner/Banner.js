@@ -7,13 +7,13 @@ const Banner = () => {
         <div className="row">
           <div className="col-md-6 banner_left">
             <div>
-              <p>Popular online Courses</p>
+              <p>Welcome to chittagong hill tracts website</p>
             </div>
             <div>
-              <h1>The new way to learn properly with us</h1>
+              <h1>Chittagong hill tracts</h1>
             </div>
             <div>
-              <button className="banner_button btn">Get Started</button>
+              <button className="banner_button btn">Discover Hill tracts</button>
             </div>
           </div>
           <div className="col-md-6"></div>
