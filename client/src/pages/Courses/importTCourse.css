@@ -1,0 +1,12 @@
+.importantCourse {
+  padding: 5rem 0;
+}
+.importantCourse h1 {
+  padding-bottom: 3.3rem;
+}
+
+.importantCourse_btn {
+  padding-top: 3rem;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,19 @@
+.auth {
+  margin-top: 7rem;
+}
+.toogleAuth {
+  cursor: pointer;
+  color: var(--yellow);
+}
+
+.auth button {
+  background-color: var(--violet);
+  color: var(--white);
+}
+.auth button:hover {
+  color: var(--yellow);
+}
+
+.form-control:focus {
+  box-shadow: var(--yellow) !important;
+}

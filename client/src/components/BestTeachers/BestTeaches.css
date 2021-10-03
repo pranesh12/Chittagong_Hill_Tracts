@@ -1,0 +1,9 @@
+.bestTeachers {
+  background-color: var(--violet);
+  color: var(--black);
+}
+
+.bestTeachers h1 {
+  color: var(--white);
+  margin-bottom: 4rem;
+}

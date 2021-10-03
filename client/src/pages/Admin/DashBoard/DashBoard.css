@@ -1,0 +1,50 @@
+.sidebar {
+  background: var(--black);
+  color: var(--white);
+  height: 100vh;
+  position: fixed;
+}
+
+.sidebar ul li {
+  padding: 10px 5px;
+}
+.sidebar ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+/* collapse button */
+.custom_menu {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px 0;
+}
+.btn_collapse {
+  position: relative;
+  color: var(--white) !important;
+}
+.btn_collapse:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+#content {
+  height: 100vh;
+  overflow: auto;
+}
+
+.deleteIcon,
+.editIcon {
+  cursor: pointer;
+}
+.deleteIcon {
+  color: var(--primaryred);
+}
+.editIcon {
+  color: var(--primarygreen);
+}
+
+.submit_button {
+  background: var(--primarygreen) !important;
+  color: var(--white) !important;
+}

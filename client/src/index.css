@@ -1,0 +1,13 @@
+:root {
+  --violet: #2d3092;
+  --white: #ffffff;
+  --black: #000000;
+  --navy: #bcddff;
+  --yellow: #e85d04;
+  --primaryred: #e63946;
+  --primarygreen: #38b000;
+}
+
+body {
+  font-family: "Inconsolata";
+}

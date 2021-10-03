@@ -1,0 +1,18 @@
+.navbar {
+  background-color: var(--white);
+  padding: 1.1rem 0;
+  color: var(--black) !important;
+}
+
+.nav-item {
+  padding: 0 1rem;
+
+  font-weight: 500;
+  font-size: large;
+}
+.nav-link {
+  color: var(--black) !important;
+}
+.nav-link:hover {
+  color: var(--violet) !important;
+}

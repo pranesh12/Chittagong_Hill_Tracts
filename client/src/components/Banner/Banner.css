@@ -1,0 +1,24 @@
+.banner {
+  background-color: var(--navy);
+  height: 95vh;
+}
+
+.banner_left {
+  padding-top: 3rem;
+}
+
+.banner_left > div {
+  margin-top: 2rem;
+}
+.banner_left p {
+  font-size: 20px;
+  color: var(--violet);
+}
+
+.banner_left h1 {
+  font-size: 60px;
+}
+.banner_button {
+  background-color: var(--violet) !important;
+  color: white !important;
+}
