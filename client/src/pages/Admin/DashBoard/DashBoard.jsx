@@ -27,17 +27,7 @@ const Dashboard = () => {
         </li>
         <li>
           <NavLink to="/admin/addcourse">
-            <i class="far fa-plus-square"></i> Add Course
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/admin/addteacher">
-            <span className="fas fa-user-plus"></span> Add Teacher
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="#">
-            <span className="fa fa-paper-plane mr-3"></span> User Name
+            <i class="far fa-plus-square"></i> Add Article
           </NavLink>
         </li>
         <li onClick={() => dispatch(logoutUser())}>
