@@ -7,7 +7,7 @@
 .nav-item {
   padding: 0 1rem;
 
-  font-weight: 500;
+  font-weight: 400;
   font-size: large;
 }
 .nav-link {
@@ -15,4 +15,10 @@
 }
 .nav-link:hover {
   color: var(--violet) !important;
+}
+
+.navbar-brand {
+  color: black !important;
+  font-size: bold !important;
+  font-weight: 500;
 }

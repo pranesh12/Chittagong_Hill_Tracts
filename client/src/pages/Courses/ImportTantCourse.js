@@ -10,13 +10,13 @@ const ImportTantCourse = () => {
   return (
     <div>
       <div className=" importantCourse container">
-        <h1 className="text-center">Our Popular Courses</h1>
+        <h1 className="text-center">Our Popular Airticles</h1>
         <div className="row ">
           <Cards filterData={threeCourse} />
         </div>
         <div className="mt-5  importantCourse_btn">
           <Link to="/courses">
-            <button className="btn btn-primary ">Find More Courses</button>
+            <button className="btn btn-primary ">Find More Articles</button>
           </Link>
         </div>
       </div>

@@ -1,0 +1,15 @@
+.card-title {
+  text-decoration: none;
+  list-style-type: none;
+  color: black;
+}
+
+.card {
+  min-height: 18rem;
+  min-width: 12rem;
+}
+
+.article_heading {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}

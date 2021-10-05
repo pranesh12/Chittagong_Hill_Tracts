@@ -1,20 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Cards.css";
 const Cards = ({ filterData }) => {
   return (
     <>
       {filterData?.map((data) => {
         return (
-          <div className="col-md-4">
-            <div className="card" style={{ width: "18rem" }}>
-              {<img src={data.data.image} className="card-img-top" alt="..." />}
+          <div className="col-md-3">
+            <div className="card">
+              {
+                <img
+                  src={data.data.image}
+                  className="card-img-top"
+                  alt={data.subType}
+                />
+              }
               <div className="card-body">
-                <h5 className="card-title">{data.subType}</h5>
-                <Link
-                  to={`/${data.subType}/${data._id}`}
-                  className="btn btn-primary"
-                >
-                  Details
+                <Link className="card-title" to={`/${data.subType}/${data._id}`}>
+                  <h5>{data.subType}</h5>
                 </Link>
               </div>
             </div>

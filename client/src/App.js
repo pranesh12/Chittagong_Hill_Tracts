@@ -7,8 +7,8 @@ import Admin from "./pages/Admin/Admin.jsx";
 import Dashboard from "./pages/Admin/DashBoard/DashBoard";
 import UpdateCourse from "./pages/Admin/UpdateCourse";
 import UserList from "./pages/Admin/UserList";
+import Atricles from "./pages/Articles/Atricles";
 import Auth from "./pages/Auth/Auth";
-import Allcourse from "./pages/Courses/Allcourse";
 
 import Home from "./pages/Home/Home";
 import AdminPrivateRoute from "./pages/PrivateRoute/AdminPrivateRoute";
@@ -20,8 +20,8 @@ function App() {
         <Route component={Navbar}>
           <Switch>
             <Route exact path="/auth" component={Auth}></Route>
-            <Route exact path="/courses" component={Allcourse}></Route>
             <Route exact path="/:name/:id" component={Details}></Route>
+            <Route exact path="/articles" component={Atricles}></Route>
             <Route exact path="/" component={Home}></Route>
           </Switch>
         </Route>

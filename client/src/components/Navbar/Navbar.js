@@ -10,7 +10,7 @@ const Navbar = () => {
   const { name } = currentUserState;
 
   return (
-    <div>
+    <div className="container">
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
@@ -30,13 +30,17 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="nav-link" to="/">
-                  Home
+                <Link className="nav-link" to="/courses">
+                  Possiblities of CHT
                 </Link>
               </li>
-
               <li className="nav-item">
                 <Link className="nav-link" to="/courses">
+                  Culture
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/articles">
                   Artilces
                 </Link>
               </li>

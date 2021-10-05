@@ -7,7 +7,7 @@ const BestTeachers = () => {
   return (
     <div className="bestTeachers">
       <div className="container ">
-        <h1 className="text-center pt-5">Meet Our popular Teachers</h1>
+        <h1 className="text-center pt-5">Meet Our popular Writter</h1>
         <div className="row">
           <BesTeacherCard teacherData={teacherState} />
         </div>
