@@ -3,29 +3,27 @@ import { useParams } from "react-router-dom";
 import Dashboard from "./DashBoard/DashBoard";
 import { useDispatch, useSelector } from "react-redux";
 import FileBase64 from "react-file-base64";
-import { findDataByid, updateArticle } from "../../Redux/actions/education";
+import { findDataByid, updateArticle } from "../../Redux/actions/article";
 
 const ArticleUpdate = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const foundedData = useSelector(
-    (state) => state.findcourseByIdReducer.foundCourse
+    (state) => state.findArticleByIdReducer.foundCourse
   );
 
-  const [educationData, setEducationData] = useState({
-    type: "programming",
-    subType: "",
-    createdBy: "",
+  const [articleData, setArticleData] = useState({
+    category: "History",
+    writer: "",
     header: "",
     article: "",
-    vedio: "",
     img: "",
   });
 
   useEffect(() => {
     if (foundedData) {
       if (id === foundedData._id) {
-        setEducationData({
+        setArticleData({
           type: foundedData?.type,
           subType: foundedData?.subType,
           createdBy: foundedData?.createdBy,
@@ -44,11 +42,11 @@ const ArticleUpdate = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateArticle(id, educationData));
+    dispatch(updateArticle(id, articleData));
   };
   const handleChange = (e) => {
-    setEducationData({
-      ...educationData,
+    setArticleData({
+      ...articleData,
       [e.target.name]: e.target.value,
     });
   };
@@ -69,12 +67,13 @@ const ArticleUpdate = () => {
                 className="form-select"
                 type="select"
                 name="type"
-                value={educationData.type}
+                value={articleData.category}
                 onChange={handleChange}
               >
-                <option value="programming">Programming</option>
-                <option value="language">Language</option>
-                <option value="computer">Computer</option>
+                <option value="History">History</option>
+                <option value="Art and Culture">Art and Culture</option>
+                <option value="Education">Education</option>
+                <option value="Potentiality in Cht">Potentiality in Cht</option>
               </select>
             </div>
 
@@ -82,10 +81,10 @@ const ArticleUpdate = () => {
               <input
                 className="form-control"
                 type="text"
-                name="subType"
-                placeholder="Sub-Type"
-                value={educationData.subType}
+                name="header"
+                placeholder="Header"
                 onChange={handleChange}
+                value={articleData.header}
               />
             </div>
             <div class="mb-3">
@@ -95,7 +94,7 @@ const ArticleUpdate = () => {
                 type="file"
                 multiple={false}
                 onDone={({ base64 }) =>
-                  setEducationData({ ...educationData, img: base64 })
+                  setArticleData({ ...articleData, img: base64 })
                 }
               />
             </div>
@@ -105,18 +104,8 @@ const ArticleUpdate = () => {
                 type="text"
                 name="createdBy"
                 placeholder="Created By"
-                value={educationData.createdBy}
+                value={articleData.createdBy}
                 onChange={handleChange}
-              />
-            </div>
-            <div class="mb-3">
-              <input
-                className="form-control"
-                type="text"
-                name="header"
-                placeholder="Header"
-                onChange={handleChange}
-                value={educationData.header}
               />
             </div>
 
@@ -126,7 +115,7 @@ const ArticleUpdate = () => {
                 type="text"
                 name="vedio"
                 placeholder="Vedio"
-                value={educationData.vedio}
+                value={articleData.vedio}
                 onChange={handleChange}
               />
             </div>
@@ -137,7 +126,7 @@ const ArticleUpdate = () => {
                 name="article"
                 placeholder="Article"
                 onChange={handleChange}
-                value={educationData.article}
+                value={articleData.article}
               />
             </div>
             <button className="btn submit_button">Submit</button>

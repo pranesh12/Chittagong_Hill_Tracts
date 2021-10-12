@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import Dashboard from "./DashBoard/DashBoard";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { deletArticleData, getArticleData } from "../../Redux/actions/education";
+import { deletArticleData, getArticleData } from "../../Redux/actions/article";
 
 const Admin = () => {
   const dispatch = useDispatch();
-  const educationalData = useSelector((state) => state.eudcationReducer.fetchDAta);
+  const articleData = useSelector((state) => state.articleReducer.fetchDAta);
 
   useEffect(() => {
     dispatch(getArticleData());
@@ -35,7 +35,7 @@ const Admin = () => {
               </tr>
             </thead>
             <tbody>
-              {educationalData?.map((ed) => {
+              {articleData?.map((ed) => {
                 return (
                   <>
                     <tr>

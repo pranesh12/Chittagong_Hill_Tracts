@@ -19,7 +19,7 @@ import {
   UPDATE_ARTICLE_DATA_FAILED,
 } from "../../actionType/actionType";
 
-export const eudcationReducer = (state = {}, action) => {
+export const articleReducer = (state = {}, action) => {
   switch (action.type) {
     case FETCH_ARTICLE_DATA:
       return {
@@ -45,7 +45,7 @@ export const eudcationReducer = (state = {}, action) => {
   }
 };
 
-export const findcourseByIdReducer = (state = {}, action) => {
+export const findArticleByIdReducer = (state = {}, action) => {
   switch (action.type) {
     case FIND_DATA_BYID:
       return {
@@ -71,7 +71,7 @@ export const findcourseByIdReducer = (state = {}, action) => {
   }
 };
 
-export const AddcourseReducer = (state = {}, action) => {
+export const addArticleReducer = (state = {}, action) => {
   switch (action.type) {
     case Add_ARTICLE_DATA:
       return {
@@ -96,7 +96,7 @@ export const AddcourseReducer = (state = {}, action) => {
   }
 };
 
-export const DeleteCourseReducer = (state = {}, action) => {
+export const deleteArticleReducer = (state = {}, action) => {
   switch (action.type) {
     case DELETE_ARTICLE_DATA:
       return {
@@ -121,7 +121,7 @@ export const DeleteCourseReducer = (state = {}, action) => {
   }
 };
 
-export const courseUpdateReducer = (state = {}, action) => {
+export const articleUpdateReducer = (state = {}, action) => {
   switch (action.type) {
     case UPDATE_ARTICLE_DATA:
       return {

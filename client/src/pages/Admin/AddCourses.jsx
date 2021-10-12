@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Dashboard from "./DashBoard/DashBoard";
 import { useDispatch } from "react-redux";
 import FileBase64 from "react-file-base64";
-import { addArticleData } from "../../Redux/actions/education";
+import { addArticleData } from "../../Redux/actions/article";
 
 const AddCourses = () => {
   const dispatch = useDispatch();
   const [articleData, setArticleData] = useState({
-    type: "History",
+    category: "History",
     writer: "",
     header: "",
     article: "",
@@ -39,8 +39,8 @@ const AddCourses = () => {
               <select
                 className="form-select"
                 type="select"
-                name="type"
-                value={articleData.type}
+                name="category"
+                value={articleData.category}
                 onChange={handleChange}
               >
                 <option value="History">History</option>

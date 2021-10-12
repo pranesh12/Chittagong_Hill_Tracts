@@ -3,12 +3,12 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Navbar from "../Navbar/Navbar";
-import { getArticleData } from "../../Redux/actions/education";
+import { getArticleData } from "../../Redux/actions/article";
 
 const Details = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const fetchDataState = useSelector((state) => state.eudcationReducer.fetchDAta);
+  const fetchDataState = useSelector((state) => state.articleReducer.fetchDAta);
   const filterDetails = fetchDataState?.filter((data) => data._id === id);
   console.log(filterDetails);
 

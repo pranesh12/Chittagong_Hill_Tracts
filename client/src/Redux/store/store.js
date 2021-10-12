@@ -2,23 +2,23 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import {
-  eudcationReducer,
+  articleReducer,
   teachersReducer,
-  courseUpdateReducer,
-  findcourseByIdReducer,
-  AddcourseReducer,
-  DeleteCourseReducer,
-} from "../reducers/education";
+  articleUpdateReducer,
+  findArticleByIdReducer,
+  addArticleReducer,
+  deleteArticleReducer,
+} from "../reducers/article";
 import { userReducer } from "../reducers/user";
 
 const finalReducers = combineReducers({
-  eudcationReducer: eudcationReducer,
+  articleReducer: articleReducer,
   teachersReducer: teachersReducer,
   userReducer: userReducer,
-  courseUpdateReducer: courseUpdateReducer,
-  findcourseByIdReducer: findcourseByIdReducer,
-  AddcourseReducer: AddcourseReducer,
-  DeleteCourseReducer: DeleteCourseReducer,
+  articleUpdateReducer: articleUpdateReducer,
+  findArticleByIdReducer: findArticleByIdReducer,
+  addArticleReducer: addArticleReducer,
+  deleteArticleReducer: deleteArticleReducer,
 });
 const currentUser = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser"))
