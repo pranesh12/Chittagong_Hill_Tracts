@@ -10,7 +10,7 @@ import {
   GET_USER_DATA_FAILED,
   DELETE_USER_ACCOUNT,
   DELETE_USER_ACCOUNT_SUCCESS,
-  DELETE_EDUCATION_DATA_FAILED,
+  DELETE_ARTICLE_DATA_FAILED,
 } from "../../actionType/actionType";
 
 export const userReducer = (state = {}, action) => {
@@ -77,7 +77,7 @@ export const userReducer = (state = {}, action) => {
         dleteAccountLoading: false,
         deletedDAta: action.payload,
       };
-    case DELETE_EDUCATION_DATA_FAILED:
+    case DELETE_ARTICLE_DATA_FAILED:
       return {
         ...state,
         dleteAccountLoading: false,

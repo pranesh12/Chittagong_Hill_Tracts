@@ -10,8 +10,8 @@ import {
   GET_USER_DATA_FAILED,
   GET_USER_SUCCESS,
   DELETE_USER_ACCOUNT,
-  DELETE_EDUCATION_DATA_FAILED,
-  DELETE_EDUCATION_DATA_SUCCESS,
+  DELETE_ARTICLE_DATA_FAILED,
+  DELETE_ARTICLE_DATA_SUCCESS,
 } from "../../actionType/actionType";
 import { url } from "../../api/api";
 
@@ -58,10 +58,10 @@ export const removeUserAccount = (id) => async (dispatch, getState) => {
   dispatch({ type: DELETE_USER_ACCOUNT });
   try {
     const res = await axios.delete(url + `removeAccount?id=${id}&email=${email}`);
-    dispatch({ type: DELETE_EDUCATION_DATA_SUCCESS, payload: res.data });
+    dispatch({ type: DELETE_ARTICLE_DATA_SUCCESS, payload: res.data });
     window.location = `/admin/userlist`;
   } catch (error) {
-    dispatch({ type: DELETE_EDUCATION_DATA_FAILED, payload: error });
+    dispatch({ type: DELETE_ARTICLE_DATA_FAILED, payload: error });
   }
 };
 

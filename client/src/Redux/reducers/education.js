@@ -1,16 +1,16 @@
 import {
-  FETCH_EDUCATIONAL_DATA_FAILED,
-  FETCH_EDUCATIONAL_DATA_SUCCESS,
-  FETCH_EDUCATIONAL_DATA,
+  FETCH_ARTICLE_DATA_FAILED,
+  FETCH_ARTICLE_DATA_SUCCESS,
+  FETCH_ARTICLE_DATA,
   FETCH_ALL_TEACHERS,
   FETCH_ALL_TEACHERS_SUCCESS,
   FETCH_ALL_TEACHERS_FAILED,
-  Add_EDUCATION_DATA,
-  Add_EDUCATION_DATA_FAILED,
-  Add_EDUCATION_DATA_SUCCESS,
-  DELETE_EDUCATION_DATA,
-  DELETE_EDUCATION_DATA_SUCCESS,
-  DELETE_EDUCATION_DATA_FAILED,
+  Add_ARTICLE_DATA,
+  Add_ARTICLE_DATA_FAILED,
+  Add_ARTICLE_DATA_SUCCESS,
+  DELETE_ARTICLE_DATA,
+  DELETE_ARTICLE_DATA_SUCCESS,
+  DELETE_ARTICLE_DATA_FAILED,
   FIND_DATA_BYID,
   FIND_DATA_BYID_SUCCESS,
   FIND_DATA_BYID_FAILED,
@@ -21,18 +21,18 @@ import {
 
 export const eudcationReducer = (state = {}, action) => {
   switch (action.type) {
-    case FETCH_EDUCATIONAL_DATA:
+    case FETCH_ARTICLE_DATA:
       return {
         ...state,
         loading: true,
       };
-    case FETCH_EDUCATIONAL_DATA_SUCCESS:
+    case FETCH_ARTICLE_DATA_SUCCESS:
       return {
         ...state,
         loading: false,
         fetchDAta: action.payload,
       };
-    case FETCH_EDUCATIONAL_DATA_FAILED:
+    case FETCH_ARTICLE_DATA_FAILED:
       return {
         ...state,
         loading: false,
@@ -73,17 +73,17 @@ export const findcourseByIdReducer = (state = {}, action) => {
 
 export const AddcourseReducer = (state = {}, action) => {
   switch (action.type) {
-    case Add_EDUCATION_DATA:
+    case Add_ARTICLE_DATA:
       return {
         ...state,
         loading: true,
       };
-    case Add_EDUCATION_DATA_SUCCESS:
+    case Add_ARTICLE_DATA_SUCCESS:
       return {
         ...state,
         loading: false,
       };
-    case Add_EDUCATION_DATA_FAILED:
+    case Add_ARTICLE_DATA_FAILED:
       return {
         ...state,
         error: action.payload,
@@ -98,17 +98,17 @@ export const AddcourseReducer = (state = {}, action) => {
 
 export const DeleteCourseReducer = (state = {}, action) => {
   switch (action.type) {
-    case DELETE_EDUCATION_DATA:
+    case DELETE_ARTICLE_DATA:
       return {
         ...state,
         loading: true,
       };
-    case DELETE_EDUCATION_DATA_SUCCESS:
+    case DELETE_ARTICLE_DATA_SUCCESS:
       return {
         ...state,
         loading: false,
       };
-    case DELETE_EDUCATION_DATA_FAILED:
+    case DELETE_ARTICLE_DATA_FAILED:
       return {
         ...state,
         error: action.payload,
