@@ -6,23 +6,21 @@ import { addArticleData } from "../../Redux/actions/education";
 
 const AddCourses = () => {
   const dispatch = useDispatch();
-  const [educationData, setEducationData] = useState({
-    type: "programming",
-    subType: "",
-    createdBy: "",
+  const [articleData, setArticleData] = useState({
+    type: "History",
+    writer: "",
     header: "",
     article: "",
-    vedio: "",
     img: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addArticleData(educationData));
+    dispatch(addArticleData(articleData));
   };
   const handleChange = (e) => {
-    setEducationData({
-      ...educationData,
+    setArticleData({
+      ...articleData,
       [e.target.name]: e.target.value,
     });
   };
@@ -42,12 +40,13 @@ const AddCourses = () => {
                 className="form-select"
                 type="select"
                 name="type"
-                value={educationData.type}
+                value={articleData.type}
                 onChange={handleChange}
               >
-                <option value="programming">Programming</option>
-                <option value="language">Language</option>
-                <option value="computer">Computer</option>
+                <option value="History">History</option>
+                <option value="Art and Culture">Art and Culture</option>
+                <option value="Education">Education</option>
+                <option value="Potentiality in Cht">Potentiality in Cht</option>
               </select>
             </div>
 
@@ -55,10 +54,10 @@ const AddCourses = () => {
               <input
                 className="form-control"
                 type="text"
-                name="subType"
-                placeholder="Sub-Type"
-                value={educationData.subType}
+                name="header"
+                placeholder="Header"
                 onChange={handleChange}
+                value={articleData.header}
               />
             </div>
             <div class="mb-3">
@@ -68,7 +67,7 @@ const AddCourses = () => {
                 type="file"
                 multiple={false}
                 onDone={({ base64 }) =>
-                  setEducationData({ ...educationData, img: base64 })
+                  setArticleData({ ...articleData, img: base64 })
                 }
               />
             </div>
@@ -76,33 +75,13 @@ const AddCourses = () => {
               <input
                 className="form-control"
                 type="text"
-                name="createdBy"
-                placeholder="Created By"
-                value={educationData.createdBy}
+                name="writer"
+                placeholder="Writer"
+                value={articleData.writer}
                 onChange={handleChange}
-              />
-            </div>
-            <div class="mb-3">
-              <input
-                className="form-control"
-                type="text"
-                name="header"
-                placeholder="Header"
-                onChange={handleChange}
-                value={educationData.header}
               />
             </div>
 
-            <div class="mb-3">
-              <input
-                className="form-control"
-                type="text"
-                name="vedio"
-                placeholder="Vedio"
-                value={educationData.vedio}
-                onChange={handleChange}
-              />
-            </div>
             <div class="mb-3">
               <textarea
                 style={{ height: "30vh" }}
@@ -110,7 +89,7 @@ const AddCourses = () => {
                 name="article"
                 placeholder="Article"
                 onChange={handleChange}
-                value={educationData.article}
+                value={articleData.article}
               />
             </div>
             <button className="btn submit_button">Submit</button>
