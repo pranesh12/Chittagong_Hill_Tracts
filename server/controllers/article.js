@@ -1,6 +1,6 @@
-const articleModel = require("../models/article");
+const articleModel = require("../models/articleModel");
 
-const getAllArticle = async (req, res) => {
+const getAllInfo = async (req, res) => {
   try {
     const info = await articleModel.find({});
     res.json(info);
@@ -9,7 +9,7 @@ const getAllArticle = async (req, res) => {
   }
 };
 
-const addArticle = async (req, res) => {
+const addArticles = async (req, res) => {
   try {
     const { type, subType, article, createdBy, header, vedio, img } = req.body;
     await articleModel.create({
@@ -39,7 +39,7 @@ const removeArticle = async (req, res) => {
   }
 };
 
-const getCourse = async (req, res) => {
+const getArticle = async (req, res) => {
   try {
     const { id } = req.query;
     const foundCourse = await articleModel.findOne({ _id: id });
@@ -74,9 +74,9 @@ const updateArticle = async (req, res) => {
 };
 
 module.exports = {
-  getAllArticle: getAllArticle,
-  addArticle: addArticle,
+  getAllInfo: getAllInfo,
+  addArticles: addArticles,
   removeArticle: removeArticle,
-  getCourse: getCourse,
+  getArticle: getArticle,
   updateArticle: updateArticle,
 };

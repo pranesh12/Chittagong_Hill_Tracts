@@ -20,5 +20,6 @@ const articleSchema = new Schema(
   { timestamps: true }
 );
 
-const articleModel = mongoose.model("articles", articleSchema);
+const articleModel = mongoose.model("courses", articleSchema);
+
 module.exports = articleModel;
