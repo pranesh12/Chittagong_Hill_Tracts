@@ -15,14 +15,14 @@ import {
   FIND_DATA_BYID,
   FIND_DATA_BYID_SUCCESS,
   FIND_DATA_BYID_FAILED,
-  UPDATE_COURSE_DATA,
-  UPDATE_COURSE_DATA_SUCCESS,
-  UPDATE_COURSE_DATA_FAILED,
+  UPDATE_ARTICLE_DATA,
+  UPDATE_ARTICLE_DATA_SUCCESS,
+  UPDATE_ARTICLE_DATA_FAILED,
 } from "../../actionType/actionType";
 
 import { url } from "../../api/api";
 
-export const getEducationalData = () => async (dispatch) => {
+export const getArticleData = () => async (dispatch) => {
   dispatch({ type: FETCH_ARTICLE_DATA });
   try {
     const res = await axios.get(url + `info`);
@@ -42,7 +42,7 @@ export const getTeachers = () => async (dispatch) => {
   }
 };
 
-export const addEducationData = (data) => async (dispatch, getState) => {
+export const addArticleData = (data) => async (dispatch, getState) => {
   const email = getState().userReducer.currentUser.email;
   dispatch({ type: Add_ARTICLE_DATA });
   try {
@@ -54,7 +54,7 @@ export const addEducationData = (data) => async (dispatch, getState) => {
   }
 };
 
-export const deleteEducationData = (id) => async (dispatch, getState) => {
+export const deletArticleData = (id) => async (dispatch, getState) => {
   const email = getState().userReducer.currentUser.email;
   dispatch({ type: DELETE_ARTICLE_DATA });
   try {
@@ -76,9 +76,9 @@ export const findDataByid = (id) => async (dispatch) => {
   }
 };
 
-export const updateCourse = (id, newData) => async (dispatch, getState) => {
+export const updateArticle = (id, newData) => async (dispatch, getState) => {
   const email = getState.userReducer().currentUser.email;
-  dispatch({ type: UPDATE_COURSE_DATA });
+  dispatch({ type: UPDATE_ARTICLE_DATA });
   const updataedData = {
     id,
     newData,
@@ -86,9 +86,9 @@ export const updateCourse = (id, newData) => async (dispatch, getState) => {
 
   try {
     const res = await axios.put(url + `update?email=${email}`, updataedData);
-    dispatch({ type: UPDATE_COURSE_DATA_SUCCESS, payload: res.data });
+    dispatch({ type: UPDATE_ARTICLE_DATA_SUCCESS, payload: res.data });
     window.location = "/admin";
   } catch (error) {
-    dispatch({ type: UPDATE_COURSE_DATA_FAILED, payload: error });
+    dispatch({ type: UPDATE_ARTICLE_DATA_FAILED, payload: error });
   }
 };

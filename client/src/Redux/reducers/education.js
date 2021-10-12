@@ -14,9 +14,9 @@ import {
   FIND_DATA_BYID,
   FIND_DATA_BYID_SUCCESS,
   FIND_DATA_BYID_FAILED,
-  UPDATE_COURSE_DATA,
-  UPDATE_COURSE_DATA_SUCCESS,
-  UPDATE_COURSE_DATA_FAILED,
+  UPDATE_ARTICLE_DATA,
+  UPDATE_ARTICLE_DATA_SUCCESS,
+  UPDATE_ARTICLE_DATA_FAILED,
 } from "../../actionType/actionType";
 
 export const eudcationReducer = (state = {}, action) => {
@@ -123,16 +123,16 @@ export const DeleteCourseReducer = (state = {}, action) => {
 
 export const courseUpdateReducer = (state = {}, action) => {
   switch (action.type) {
-    case UPDATE_COURSE_DATA:
+    case UPDATE_ARTICLE_DATA:
       return {
         ...state,
       };
-    case UPDATE_COURSE_DATA_SUCCESS:
+    case UPDATE_ARTICLE_DATA_SUCCESS:
       return {
         ...state,
         message: action.payload,
       };
-    case UPDATE_COURSE_DATA_FAILED: {
+    case UPDATE_ARTICLE_DATA_FAILED: {
       return {
         ...state,
         error: action.payload,

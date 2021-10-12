@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Dashboard from "./DashBoard/DashBoard";
 import { useDispatch } from "react-redux";
 import FileBase64 from "react-file-base64";
-import { addEducationData } from "../../Redux/actions/education";
+import { addArticleData } from "../../Redux/actions/education";
 
 const AddCourses = () => {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const AddCourses = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addEducationData(educationData));
+    dispatch(addArticleData(educationData));
   };
   const handleChange = (e) => {
     setEducationData({

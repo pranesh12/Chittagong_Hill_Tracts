@@ -5,13 +5,12 @@ import AddCourses from "./pages/Admin/AddCourses";
 import AddTeacher from "./pages/Admin/AddTeacher";
 import Admin from "./pages/Admin/Admin.jsx";
 import Dashboard from "./pages/Admin/DashBoard/DashBoard";
-import UpdateCourse from "./pages/Admin/UpdateCourse";
 import UserList from "./pages/Admin/UserList";
 import Atricles from "./pages/Articles/Atricles";
 import Auth from "./pages/Auth/Auth";
-
 import Home from "./pages/Home/Home";
 import AdminPrivateRoute from "./pages/PrivateRoute/AdminPrivateRoute";
+import ArticleUpdate from "./pages/Admin/ArticleUpdate";
 
 function App() {
   return (
@@ -40,7 +39,7 @@ function App() {
               <AddTeacher />
             </AdminPrivateRoute>
             <AdminPrivateRoute exact path="/admin/edit/:id">
-              <UpdateCourse />
+              <ArticleUpdate />
             </AdminPrivateRoute>
             <AdminPrivateRoute exact path="/admin/UserList">
               <UserList />

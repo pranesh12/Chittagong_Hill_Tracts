@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import Dashboard from "./DashBoard/DashBoard";
 import { useDispatch, useSelector } from "react-redux";
 import FileBase64 from "react-file-base64";
-import { findDataByid, updateCourse } from "../../Redux/actions/education";
+import { findDataByid, updateArticle } from "../../Redux/actions/education";
 
-const UpdateCourse = () => {
+const ArticleUpdate = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const foundedData = useSelector(
@@ -44,7 +44,7 @@ const UpdateCourse = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(updateCourse(id, educationData));
+    dispatch(updateArticle(id, educationData));
   };
   const handleChange = (e) => {
     setEducationData({
@@ -148,4 +148,4 @@ const UpdateCourse = () => {
   );
 };
 
-export default UpdateCourse;
+export default ArticleUpdate;

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Navbar from "../Navbar/Navbar";
-import { getEducationalData } from "../../Redux/actions/education";
+import { getArticleData } from "../../Redux/actions/education";
 
 const Details = () => {
   const { id } = useParams();
@@ -13,7 +13,7 @@ const Details = () => {
   console.log(filterDetails);
 
   useEffect(() => {
-    dispatch(getEducationalData());
+    dispatch(getArticleData());
   }, [id, dispatch]);
   return (
     <div>
