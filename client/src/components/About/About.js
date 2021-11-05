@@ -1,6 +1,7 @@
 import React from "react";
 import "./About.css";
 import person from "../../images/person.png";
+import one from "../../images/one.jpg";
 const About = () => {
   return (
     <>
@@ -12,9 +13,10 @@ const About = () => {
             </div>
             <div className="about_content">
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati
-                illum optio amet molestias quae culpa recusandae possimus ea totam
-                dolorum.
+                Chittagong hill tracts is a non-profit online archive and community.
+                We are conserving and promoting cultures of world indigenous
+                community. You can share and explore new ideas & thoughts
+                representing diverse views of diverse people.zs
               </p>
             </div>
             <div className="about_iconlist">

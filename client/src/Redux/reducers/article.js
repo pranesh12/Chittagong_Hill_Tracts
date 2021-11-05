@@ -56,7 +56,7 @@ export const findArticleByIdReducer = (state = {}, action) => {
       return {
         ...state,
         loading: false,
-        foundCourse: action.payload,
+        foundArticle: action.payload,
       };
     case FIND_DATA_BYID_FAILED:
       return {

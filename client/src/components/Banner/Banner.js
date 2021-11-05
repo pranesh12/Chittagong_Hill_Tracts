@@ -1,5 +1,6 @@
 import React from "react";
 import "./Banner.css";
+import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <div className="banner">
@@ -21,7 +22,9 @@ const Banner = () => {
               </p>
             </div>
             <div>
-              <button className="banner_button btn">Discover Hill tracts</button>
+              <Link to="/articles">
+                <button className="banner_button btn">Discover Hill tracts</button>
+              </Link>
             </div>
           </div>
           <div className="col-md-6"></div>

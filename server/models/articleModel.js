@@ -3,15 +3,15 @@ const { Schema } = mongoose;
 
 const articleSchema = new Schema(
   {
-    type: {
+    header: {
       type: String,
       require,
     },
-    subType: {
+    category: {
       type: String,
       require,
     },
-    createdBy: {
+    writer: {
       type: String,
       require,
     },
@@ -20,6 +20,6 @@ const articleSchema = new Schema(
   { timestamps: true }
 );
 
-const articleModel = mongoose.model("courses", articleSchema);
+const articleModel = mongoose.model("articles", articleSchema);
 
 module.exports = articleModel;

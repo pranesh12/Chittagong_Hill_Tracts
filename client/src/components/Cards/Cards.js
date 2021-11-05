@@ -11,13 +11,13 @@ const Cards = ({ filterData }) => {
               {
                 <img
                   src={data.data.image}
-                  className="card-img-top"
+                  className="card-img-top img_top"
                   alt={data.subType}
                 />
               }
               <div className="card-body">
                 <Link className="card-title" to={`/${data.subType}/${data._id}`}>
-                  <h5>{data.subType}</h5>
+                  <h5>{data.data.header}</h5>
                 </Link>
               </div>
             </div>

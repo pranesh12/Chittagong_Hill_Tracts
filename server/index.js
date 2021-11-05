@@ -11,7 +11,7 @@ app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 app.use("/", articleRouter);
 app.use("/", userRouter);
-mongoose.connect("mongodb://localhost:27017/education", {
+mongoose.connect("mongodb://localhost:27017/hillTracts", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

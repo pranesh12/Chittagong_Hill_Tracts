@@ -77,7 +77,7 @@ export const findDataByid = (id) => async (dispatch) => {
 };
 
 export const updateArticle = (id, newData) => async (dispatch, getState) => {
-  const email = getState.userReducer().currentUser.email;
+  const email = getState().userReducer.currentUser.email;
   dispatch({ type: UPDATE_ARTICLE_DATA });
   const updataedData = {
     id,

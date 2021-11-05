@@ -27,9 +27,9 @@ const Admin = () => {
           <table class="table">
             <thead>
               <tr>
-                <th>Subject Type</th>
-                <th>Subject Name</th>
-                <th>Created By</th>
+                <th>Category</th>
+                <th>Header</th>
+                <th>writer</th>
                 <th>Data</th>
                 <th>Edit/Delete</th>
               </tr>
@@ -39,9 +39,9 @@ const Admin = () => {
                 return (
                   <>
                     <tr>
-                      <td>{ed.type}</td>
-                      <td>{ed.subType}</td>
-                      <td>{ed.createdBy}</td>
+                      <td>{ed.category}</td>
+                      <td>{ed.data.header}</td>
+                      <td>{ed.writer}</td>
                       <td>{ed.data.article.slice(0, 50)}</td>
                       <td>
                         <div className="d-flex justify-content-around">

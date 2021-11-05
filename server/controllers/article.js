@@ -11,16 +11,14 @@ const getAllInfo = async (req, res) => {
 
 const addArticles = async (req, res) => {
   try {
-    const { type, subType, article, createdBy, header, vedio, img } = req.body;
+    const { category, writer, header, article, img } = req.body;
     await articleModel.create({
-      type,
-      subType,
-      createdBy,
+      category,
+      writer,
       data: {
         image: img,
         header,
         article,
-        vedio,
       },
     });
     res.json({ meassage: "course Created succesfuly" });
@@ -42,8 +40,8 @@ const removeArticle = async (req, res) => {
 const getArticle = async (req, res) => {
   try {
     const { id } = req.query;
-    const foundCourse = await articleModel.findOne({ _id: id });
-    res.json(foundCourse);
+    const foundArticle = await articleModel.findOne({ _id: id });
+    res.json(foundArticle);
   } catch (error) {
     res.json(error);
   }
@@ -51,18 +49,15 @@ const getArticle = async (req, res) => {
 
 const updateArticle = async (req, res) => {
   const { id, newData } = req.body;
+  const { category, writer, header, article, img } = newData;
   try {
-    const { type, subType, article, createdBy, header, vedio, img } = newData;
-
     const newData = {
-      type,
-      subType,
-      createdBy,
+      category,
+      writer,
       data: {
         image: img,
         header,
         article,
-        vedio,
       },
     };
 

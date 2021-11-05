@@ -5,6 +5,7 @@ import Banner from "../../components/Banner/Banner";
 import Footer from "../../components/Footer/Footer";
 import Information from "../../components/Information/Infromation";
 import Navbar from "../../components/Navbar/Navbar";
+import Section from "../../components/Section/Section";
 import { getArticleData, getTeachers } from "../../Redux/actions/article";
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
     <div>
       <Navbar />
       <Banner />
+      <Section />
       <About />
       <Information />
       <Footer />

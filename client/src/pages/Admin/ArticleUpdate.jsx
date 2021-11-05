@@ -9,7 +9,7 @@ const ArticleUpdate = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const foundedData = useSelector(
-    (state) => state.findArticleByIdReducer.foundCourse
+    (state) => state.findArticleByIdReducer.foundArticle
   );
 
   const [articleData, setArticleData] = useState({
@@ -20,16 +20,16 @@ const ArticleUpdate = () => {
     img: "",
   });
 
+  console.log(foundedData);
+
   useEffect(() => {
     if (foundedData) {
       if (id === foundedData._id) {
         setArticleData({
-          type: foundedData?.type,
-          subType: foundedData?.subType,
-          createdBy: foundedData?.createdBy,
           header: foundedData?.data.header,
+          category: foundedData?.category,
+          writer: foundedData?.writer,
           article: foundedData?.data.article,
-          vedio: foundedData?.data.vedio,
           img: foundedData?.data.image,
         });
       } else {
@@ -66,7 +66,7 @@ const ArticleUpdate = () => {
               <select
                 className="form-select"
                 type="select"
-                name="type"
+                name="category"
                 value={articleData.category}
                 onChange={handleChange}
               >
@@ -102,20 +102,9 @@ const ArticleUpdate = () => {
               <input
                 className="form-control"
                 type="text"
-                name="createdBy"
-                placeholder="Created By"
-                value={articleData.createdBy}
-                onChange={handleChange}
-              />
-            </div>
-
-            <div class="mb-3">
-              <input
-                className="form-control"
-                type="text"
-                name="vedio"
-                placeholder="Vedio"
-                value={articleData.vedio}
+                name="writer"
+                placeholder="Writer"
+                value={articleData.writer}
                 onChange={handleChange}
               />
             </div>
