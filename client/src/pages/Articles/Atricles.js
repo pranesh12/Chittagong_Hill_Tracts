@@ -15,7 +15,7 @@ const Atricles = () => {
     <>
       <Navbar />
       <div className="container  text-center">
-        <h1 className="article_heading">All Articles</h1>
+        <h1 className="article_heading mb-5 mt-5"> Articles</h1>
         <div className="row gx-3 gy-5">
           <Cards filterData={courseState} />
         </div>

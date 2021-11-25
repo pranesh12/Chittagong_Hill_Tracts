@@ -11,7 +11,6 @@ import Auth from "./pages/Auth/Auth";
 import Home from "./pages/Home/Home";
 import AdminPrivateRoute from "./pages/PrivateRoute/AdminPrivateRoute";
 import ArticleUpdate from "./pages/Admin/ArticleUpdate";
-import Translation from "./components/Translation/Translation";
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
             <Route exact path="/auth" component={Auth}></Route>
             <Route exact path="/:name/:id" component={Details}></Route>
             <Route exact path="/articles" component={Atricles}></Route>
-            <Route exact path="/translation" component={Translation}></Route>
             <Route exact path="/" component={Home}></Route>
           </Switch>
         </Route>

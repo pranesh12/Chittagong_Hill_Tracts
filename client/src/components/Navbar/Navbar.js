@@ -35,8 +35,13 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/translation">
-                  Translation
+                <Link className="nav-link" to="Education/61853147b55f903ed872b2e7">
+                  Chakma Alphabet
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/Education/61855355035620151820ac13">
+                  Banglali To Chakma Translation
                 </Link>
               </li>
               <li className="nav-item">

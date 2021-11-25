@@ -1,10 +1,12 @@
 .banner {
   background-color: var(--navy);
-  height: 60vh;
+  padding-top: 1rem;
+  padding-bottom: 15rem;
 }
 
 .banner_left {
   padding-top: 3rem;
+  margin-left: 1rem;
 }
 
 .banner_left > div {
@@ -19,6 +21,11 @@
   font-size: 60px;
 }
 .banner_button {
+  font-size: 20px !important;
   background-color: var(--violet) !important;
   color: white !important;
+}
+
+.banner_paragraph {
+  font-size: 24px !important;
 }

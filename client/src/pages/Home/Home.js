@@ -6,13 +6,16 @@ import Footer from "../../components/Footer/Footer";
 import Information from "../../components/Information/Infromation";
 import Navbar from "../../components/Navbar/Navbar";
 import Section from "../../components/Section/Section";
-import { getArticleData, getTeachers } from "../../Redux/actions/article";
+import { getArticleData } from "../../Redux/actions/article";
+import { useSelector } from "react-redux";
+import SubArticle from "../../components/SubArticle/SubArticle";
 
 const Home = () => {
+  const articleData = useSelector((state) => state.articleReducer.fetchDAta);
+  console.log(articleData);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getArticleData());
-    dispatch(getTeachers());
   }, [dispatch]);
 
   return (
@@ -21,6 +24,7 @@ const Home = () => {
       <Banner />
       <Section />
       <About />
+      <SubArticle data={articleData} />
       <Information />
       <Footer />
     </div>

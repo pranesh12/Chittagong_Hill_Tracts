@@ -5,16 +5,18 @@ const Banner = () => {
   return (
     <div className="banner">
       <div className="container">
-        <div className="row">
+        <div className="row ">
           <div className="col-md-6 banner_left">
             <div>
-              <p>Welcome to Chittagong hill tracts webstie</p>
+              <p className="banner_paragraph">
+                Welcome to Chittagong hill tracts webstie
+              </p>
             </div>
             <div>
               <h1>Chittagong hill tracts</h1>
             </div>
             <div>
-              <p>
+              <p className="banner_paragraph">
                 Chittagong hill tracts is a non-profit online archive and community.
                 We are conserving and promoting cultures of world indigenous
                 community. You can share and explore new ideas & thoughts

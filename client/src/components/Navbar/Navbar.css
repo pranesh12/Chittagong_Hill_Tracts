@@ -6,12 +6,10 @@
 
 .nav-item {
   padding: 0 1rem;
-
-  font-weight: 400;
-  font-size: large;
 }
 .nav-link {
   color: var(--black) !important;
+  font-size: 15px !important;
 }
 .nav-link:hover {
   color: var(--violet) !important;

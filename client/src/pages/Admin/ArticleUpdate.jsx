@@ -20,8 +20,6 @@ const ArticleUpdate = () => {
     img: "",
   });
 
-  console.log(foundedData);
-
   useEffect(() => {
     if (foundedData) {
       if (id === foundedData._id) {
@@ -58,9 +56,6 @@ const ArticleUpdate = () => {
           <Dashboard />
         </div>
         <div id="content" className="p-4 p-md-5 pt-5 col-md-10">
-          <h1>Update course course</h1>
-          <h3>{id}</h3>
-
           <form onSubmit={handleSubmit}>
             <div class="mb-3">
               <select
