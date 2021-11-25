@@ -1,16 +1,20 @@
 .card_lower_body {
+  font-family: "Inconsolata";
+  background-color: var(--secondaryBlack);
+
   height: 6rem;
 }
 .card_title {
   font-size: 1rem;
+  color: var(--green) !important;
 }
 .card_link {
-  color: black;
+  color: var(--white) !important;
   text-decoration: none !important;
 }
 
-.main_card {
-  border: none !important;
+.subArticle_card {
+  border: 0 !important;
 }
 
 @media only screen and (max-width: 1160px) {

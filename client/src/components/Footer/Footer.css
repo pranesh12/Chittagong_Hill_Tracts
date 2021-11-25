@@ -1,7 +1,7 @@
 .footer {
-  background: var(--white);
-  /* font-family: "Inconsolata"; */
-  color: var(--black);
+  background: var(--secondaryBlack);
+  font-family: "Inconsolata";
+  color: var(--white);
 }
 
 .icon_list i {

@@ -7,18 +7,21 @@ const Cards = ({ filterData }) => {
       {filterData?.map((data) => {
         return (
           <div className="col-md-3">
-            <div className="card">
+            <div className="card main_card">
               {
                 <img
+                  style={{ min_width: "500px", height: "300px" }}
                   src={data.data.image}
-                  className="card-img-top img_top"
+                  className="card-img-top img_top "
                   alt={data.subType}
                 />
               }
-              <div className="card-body">
-                <Link className="card-title" to={`/${data.category}/${data._id}`}>
-                  <h5>{data.data.header}</h5>
-                </Link>
+              <div className="card_lower_body d-flex justify-content-center align-items-center">
+                <p className="mt-2 card_title">
+                  <Link className="card_link" to={`/${data.category}/${data._id}`}>
+                    {data.data.header}
+                  </Link>
+                </p>
               </div>
             </div>
           </div>

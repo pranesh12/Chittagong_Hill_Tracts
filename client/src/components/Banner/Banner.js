@@ -24,8 +24,8 @@ const Banner = () => {
               </p>
             </div>
             <div>
-              <Link to="/articles">
-                <button className="banner_button btn">Discover Hill tracts</button>
+              <Link className="discover" to="/articles">
+                <h5>Discover Hill tracts</h5>
               </Link>
             </div>
           </div>

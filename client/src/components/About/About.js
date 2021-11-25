@@ -3,9 +3,9 @@ import "./About.css";
 import person from "../../images/person.png";
 const About = () => {
   return (
-    <>
-      <div className=" container about">
-        <div className="row">
+    <div className="about">
+      <div className=" container">
+        <div className="row about_row">
           <div className="col-md-6">
             <div className="about_header">
               <h1>Want to Know more</h1>
@@ -45,7 +45,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

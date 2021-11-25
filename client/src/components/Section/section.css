@@ -2,10 +2,13 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   text-align: center;
   padding: 5rem 0 !important;
+  background-color: var(--secondaryBlack);
+  color: var(--white);
 }
 .section {
-  margin-top: 15rem !important;
-  margin-bottom: 15rem !important;
+  padding: 15rem 0 !important;
+  font-family: "Inconsolata";
+  background-color: var(--primaryBlack);
 }
 .section_img {
   margin: 1rem 0;
@@ -26,5 +29,10 @@
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   font-weight: bold;
-  color: ;
+  color: var(--green);
+}
+
+.about_card {
+  border: 0 !important;
+  outline: 1px solid var(--green);
 }

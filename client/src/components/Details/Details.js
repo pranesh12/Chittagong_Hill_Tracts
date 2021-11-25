@@ -21,11 +21,9 @@ const Details = () => {
       <Navbar />
       {filterDetails?.map((filterData) => {
         return (
-          <>
+          <div className="details">
             <div className="container">
-              <h1 className="text-center pt-2 pb-5 mt-5">
-                {filterData.data.header}
-              </h1>
+              <h1 className="text-center pt-2 pb-5 ">{filterData.data.header}</h1>
               <div className="d-flex justify-content-center mb-5">
                 <img
                   className="img-fluid"
@@ -41,7 +39,7 @@ const Details = () => {
                 <p>Updated At: {filterData.createdAt.slice(0, 10)}</p>
               </div>
             </div>
-          </>
+          </div>
         );
       })}
     </div>

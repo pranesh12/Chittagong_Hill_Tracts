@@ -1,11 +1,15 @@
 :root {
-  --violet: #2d3092;
   --white: #ffffff;
-  --black: #000000;
-  --navy: #bcddff;
-  --yellow: #e85d04;
-  --primaryred: #e63946;
-  --primarygreen: #38b000;
+  --black: #2d2e32;
+  --navy: #e3f2fd54;
+  --primaryBlack: #2d2e32;
+  --secondaryBlack: #25262a;
+  --green: #5bd490;
+  --white: #fdfdfd;
+}
+
+a :visited {
+  color: var(--green) !important;
 }
 
 body {

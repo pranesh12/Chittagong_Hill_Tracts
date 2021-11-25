@@ -4,6 +4,7 @@ import { getArticleData } from "../../Redux/actions/article";
 import { useSelector } from "react-redux";
 import Cards from "../../components/Cards/Cards";
 import Navbar from "../../components/Navbar/Navbar";
+import "./Article.css";
 const Atricles = () => {
   const courseState = useSelector((state) => state.articleReducer.fetchDAta);
   const dispatch = useDispatch();
@@ -14,10 +15,11 @@ const Atricles = () => {
   return (
     <>
       <Navbar />
-      <div className="container  text-center">
-        <h1 className="article_heading mb-5 mt-5"> Articles</h1>
-        <div className="row gx-3 gy-5">
-          <Cards filterData={courseState} />
+      <div className="article_section">
+        <div className="container  text-center mt-5">
+          <div className="row gx-3 gy-5">
+            <Cards filterData={courseState} />
+          </div>
         </div>
       </div>
     </>

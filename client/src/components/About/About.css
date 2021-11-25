@@ -1,5 +1,10 @@
+.about {
+  font-family: "Inconsolata";
+  background-color: var(--secondaryBlack);
+  color: var(--white);
+}
 .about_header {
-  margin: 2rem 0;
+  margin: 3rem 0;
 }
 .about_header h1 {
   font-size: 3rem;
@@ -23,4 +28,7 @@
   margin-top: 1rem;
   background-color: var(--violet);
   color: var(--white);
+}
+.about-row {
+  padding: 1rem 0 !important;
 }

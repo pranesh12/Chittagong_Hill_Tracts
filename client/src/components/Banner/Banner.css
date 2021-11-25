@@ -1,7 +1,9 @@
 .banner {
-  background-color: var(--navy);
+  background-color: var(--secondaryBlack);
   padding-top: 1rem;
   padding-bottom: 15rem;
+  color: var(--white);
+  font-family: "Inconsolata";
 }
 
 .banner_left {
@@ -14,18 +16,18 @@
 }
 .banner_left p {
   font-size: 20px;
-  color: var(--violet);
+  color: var(--white);
 }
 
 .banner_left h1 {
   font-size: 60px;
 }
-.banner_button {
-  font-size: 20px !important;
-  background-color: var(--violet) !important;
-  color: white !important;
-}
 
 .banner_paragraph {
   font-size: 24px !important;
+}
+
+.discover {
+  color: var(--green);
+  text-decoration: none !important;
 }

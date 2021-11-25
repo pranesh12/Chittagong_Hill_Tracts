@@ -10,7 +10,7 @@ const Section = () => {
       <div className="container">
         <div className="row gx-3 gy-5">
           <div className="col">
-            <div className="card" style={{ width: "20rem" }}>
+            <div className="card about_card" style={{ width: "20rem" }}>
               <div className="card-body">
                 <img
                   className="img-fluid section_img"
@@ -26,7 +26,7 @@ const Section = () => {
             </div>
           </div>
           <div className="col">
-            <div className="card" style={{ width: "20rem" }}>
+            <div className="card about_card" style={{ width: "20rem" }}>
               <div className="card-body">
                 <img
                   className="img-fluid section_img"
@@ -43,7 +43,7 @@ const Section = () => {
             </div>
           </div>
           <div className="col">
-            <div className="card" style={{ width: "20rem" }}>
+            <div className="card about_card" style={{ width: "20rem" }}>
               <div className="card-body">
                 <img
                   className="img-fluid section_img"
