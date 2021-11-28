@@ -13,7 +13,7 @@ const Banner = () => {
               </p>
             </div>
             <div>
-              <h1>Chittagong hill tracts</h1>
+              <h1 className="banner_heading">Chittagong hill tracts</h1>
             </div>
             <div>
               <p className="banner_paragraph">

@@ -38,13 +38,13 @@
   cursor: pointer;
 }
 .deleteIcon {
-  color: var(--primaryred);
+  color: rgba(255, 51, 0, 0.952);
 }
 .editIcon {
-  color: var(--primarygreen);
+  color: var(--green);
 }
 
 .submit_button {
-  background: var(--primarygreen) !important;
-  color: var(--white) !important;
+  background: var(--primaryBlack) !important;
+  color: var(--green) !important;
 }

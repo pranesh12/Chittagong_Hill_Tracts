@@ -33,17 +33,18 @@ const Navbar = () => {
           >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link
-                  className="nav-link "
-                  aria-current="page"
-                  to="Education/61853147b55f903ed872b2e7"
-                >
+                <Link className="nav-link" to="/Education/61853147b55f903ed872b2e7">
                   Chakma Alphabet
                 </Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/Education/61855355035620151820ac13">
                   Translation
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/articles">
+                  Articles
                 </Link>
               </li>
             </ul>
@@ -62,11 +63,13 @@ const Navbar = () => {
                 <Link className="nav-link">logout</Link>
               </li>
             </ul>
-            <form className="d-flex">
+            {/* <form className="d-flex">
               <button className="btn btn-outline-success" type="submit">
-                <Link to="/articles">Articles</Link>
+                <Link className="article_link" to="/articles">
+                  Articles
+                </Link>
               </button>
-            </form>
+            </form> */}
           </div>
         </div>
       </nav>

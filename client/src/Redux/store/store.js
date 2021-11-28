@@ -1,6 +1,7 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
+
 import {
   articleReducer,
   teachersReducer,
@@ -20,6 +21,7 @@ const finalReducers = combineReducers({
   addArticleReducer: addArticleReducer,
   deleteArticleReducer: deleteArticleReducer,
 });
+
 const currentUser = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser"))
   : [];

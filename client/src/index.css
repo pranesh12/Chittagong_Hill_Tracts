@@ -1,7 +1,6 @@
 :root {
   --white: #ffffff;
   --black: #2d2e32;
-  --navy: #e3f2fd54;
   --primaryBlack: #2d2e32;
   --secondaryBlack: #25262a;
   --green: #5bd490;
@@ -14,4 +13,8 @@ a :visited {
 
 body {
   font-family: "Inconsolata";
+}
+
+.nav navbar-nav navbar-right .active a {
+  color: var(--green) !important;
 }

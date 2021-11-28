@@ -12,7 +12,6 @@ import SubArticle from "../../components/SubArticle/SubArticle";
 
 const Home = () => {
   const articleData = useSelector((state) => state.articleReducer.fetchDAta);
-  console.log(articleData);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getArticleData());

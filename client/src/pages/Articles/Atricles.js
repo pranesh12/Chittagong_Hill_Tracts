@@ -3,8 +3,9 @@ import { useDispatch } from "react-redux";
 import { getArticleData } from "../../Redux/actions/article";
 import { useSelector } from "react-redux";
 import Cards from "../../components/Cards/Cards";
-import Navbar from "../../components/Navbar/Navbar";
 import "./Article.css";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 const Atricles = () => {
   const courseState = useSelector((state) => state.articleReducer.fetchDAta);
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const Atricles = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

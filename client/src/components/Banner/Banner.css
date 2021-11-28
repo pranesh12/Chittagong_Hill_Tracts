@@ -24,10 +24,17 @@
 }
 
 .banner_paragraph {
-  font-size: 24px !important;
+  font-size: 20px !important;
 }
 
 .discover {
-  color: var(--green);
+  color: var(--white);
   text-decoration: none !important;
+}
+.discover:hover {
+  color: var(--green) !important;
+}
+
+.banner_heading {
+  font-size: 45px !important;
 }

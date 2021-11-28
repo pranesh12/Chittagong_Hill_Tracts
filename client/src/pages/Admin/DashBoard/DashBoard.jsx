@@ -13,7 +13,7 @@ const Dashboard = () => {
           <i className="fa fa-bars"></i>
         </button>
       </div>
-      <h2>Project Name</h2>
+      <h2>Admin Pannel</h2>
       <ul className="list-unstyled components mb-5">
         <li className="active">
           <NavLink to="/admin">
