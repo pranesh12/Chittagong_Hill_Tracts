@@ -11,6 +11,7 @@ import {
   deleteArticleReducer,
 } from "../reducers/article";
 import { userReducer } from "../reducers/user";
+import { languageReducer } from "../reducers/language";
 
 const finalReducers = combineReducers({
   articleReducer: articleReducer,
@@ -20,6 +21,7 @@ const finalReducers = combineReducers({
   findArticleByIdReducer: findArticleByIdReducer,
   addArticleReducer: addArticleReducer,
   deleteArticleReducer: deleteArticleReducer,
+  languageReducer: languageReducer,
 });
 
 const currentUser = localStorage.getItem("currentUser")

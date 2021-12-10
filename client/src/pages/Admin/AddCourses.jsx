@@ -31,7 +31,7 @@ const AddCourses = () => {
           <Dashboard />
         </div>
         <div id="content" className="p-4 p-md-5 pt-5 col-md-10">
-          <h2 className="mb-4 text-center">Add Courses</h2>
+          <h2 className="mb-4 text-center">Add Article</h2>
 
           {/* Adding form */}
           <form onSubmit={handleSubmit}>

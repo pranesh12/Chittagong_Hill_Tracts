@@ -3,6 +3,8 @@
   color: var(--white);
   height: 100vh;
   position: fixed;
+  width: 250px;
+  font-family: "Inconsolata" !important;
 }
 
 .sidebar ul li {
@@ -47,4 +49,25 @@
 .submit_button {
   background: var(--primaryBlack) !important;
   color: var(--green) !important;
+}
+
+.admin_Heading {
+  padding: 0 10px;
+  padding-top: 20px !important;
+  color: var(--green);
+}
+
+.sidebar_heading {
+  padding-left: 1rem !important;
+}
+.sidebar_heading:hover {
+  color: var(--green);
+}
+
+.sidebar_heading:visited {
+  color: var(--green) !important;
+}
+
+.sidebar_heading:active {
+  color: var(--green);
 }

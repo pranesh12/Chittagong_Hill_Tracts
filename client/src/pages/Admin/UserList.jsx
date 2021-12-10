@@ -21,7 +21,7 @@ const UserList = () => {
           <Dashboard />
         </div>
         <div id="content" className="p-4 p-md-5 pt-5 col-md-10">
-          <h1>User Account List</h1>
+          <h1>User List</h1>
 
           <table class="table">
             <thead>

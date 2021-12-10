@@ -1,7 +1,9 @@
 import React from "react";
 import "./Banner.css";
 import { Link } from "react-router-dom";
-const Banner = () => {
+const Banner = ({ props }) => {
+  console.log(props);
+
   return (
     <div className="banner">
       <div className="container">

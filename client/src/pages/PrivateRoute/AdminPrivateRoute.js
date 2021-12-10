@@ -3,7 +3,7 @@ import { Route } from "react-router";
 import { useSelector } from "react-redux";
 const AdminPrivateRoute = ({ children, ...rest }) => {
   const state = useSelector((state) => state.userReducer.currentUser);
-  console.log(state.email, state.isAdmin);
+
   return (
     <Route
       {...rest}

@@ -3,10 +3,15 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./Navbar.css";
 import { logoutUser } from "../../Redux/actions/userAction";
+import { changeLanguage } from "../../Redux/actions/changingLanguage";
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const currentUserState = useSelector((state) => state.userReducer.currentUser);
+  const currentLanguage = useSelector(
+    (state) => state.languageReducer.changeToChakmaLange
+  );
+  console.log(currentLanguage);
   const { name } = currentUserState;
 
   return (
@@ -51,10 +56,37 @@ const Navbar = () => {
 
             <ul className="navbar-nav ">
               <li className="nav-item">
+                <div class="dropdown">
+                  <Link
+                    className="btn btn-secondary dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Languages
+                  </Link>
+
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li onClick={() => dispatch(changeLanguage(true))}>
+                      <Link className="dropdown-item" href="#">
+                        Chakma
+                      </Link>
+                    </li>
+                    <li onClick={() => dispatch(changeLanguage(false))}>
+                      <Link className="dropdown-item" href="#">
+                        English
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li className="nav-item">
                 {name ? (
                   <Link className="nav-link active">{name}</Link>
                 ) : (
-                  <Link className="nav-link" to="/auth">
+                  <Link className="nav-link " to="/auth">
                     Login/registration
                   </Link>
                 )}

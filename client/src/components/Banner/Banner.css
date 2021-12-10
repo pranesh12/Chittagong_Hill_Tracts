@@ -37,4 +37,5 @@
 
 .banner_heading {
   font-size: 45px !important;
+  color: var(--green);
 }

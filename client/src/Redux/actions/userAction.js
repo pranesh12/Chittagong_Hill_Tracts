@@ -59,7 +59,7 @@ export const removeUserAccount = (id) => async (dispatch, getState) => {
   try {
     const res = await axios.delete(url + `removeAccount?id=${id}&email=${email}`);
     dispatch({ type: DELETE_ARTICLE_DATA_SUCCESS, payload: res.data });
-    window.location = `/admin/userlist`;
+    window.location = `/admin`;
   } catch (error) {
     dispatch({ type: DELETE_ARTICLE_DATA_FAILED, payload: error });
   }

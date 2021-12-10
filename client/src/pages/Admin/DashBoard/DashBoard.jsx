@@ -8,31 +8,30 @@ const Dashboard = () => {
   const dispatch = useDispatch();
   return (
     <nav className="sidebar">
-      <div className="custom_menu">
-        <button type="button" className="btn btn_collapse ">
-          <i className="fa fa-bars"></i>
-        </button>
-      </div>
-      <h2>Admin Pannel</h2>
-      <ul className="list-unstyled components mb-5">
+      <h2 className="admin_Heading">Admin Section</h2>
+      <ul className="list-unstyled components mb-5 mt-5 ms-2">
         <li className="active">
           <NavLink to="/admin">
-            <span className="fa fa-home mr-2"></span> Homepage
+            <span className="fa fa-home"></span>{" "}
+            <span className="sidebar_heading">Homepage</span>
           </NavLink>
         </li>
         <li>
           <NavLink to="/admin/userlist">
-            <span className="fa fa-user mr-3"></span> User List
+            <span className="fa fa-user"></span>{" "}
+            <span className="sidebar_heading">User List</span>
           </NavLink>
         </li>
         <li>
           <NavLink to="/admin/addcourse">
-            <i class="far fa-plus-square"></i> Add Article
+            <i class="far fa-plus-square"></i>{" "}
+            <span className="sidebar_heading">Add Article</span>
           </NavLink>
         </li>
         <li onClick={() => dispatch(logoutUser())}>
           <NavLink to="#">
-            <i class="fas fa-sign-out-alt"></i> Log out
+            <i class="fas fa-sign-out-alt"></i>{" "}
+            <span className="sidebar_heading">Log out</span>
           </NavLink>
         </li>
       </ul>
