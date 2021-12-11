@@ -2,32 +2,24 @@ import React from "react";
 import "./Banner.css";
 import { Link } from "react-router-dom";
 const Banner = ({ props }) => {
-  console.log(props);
-
+  const { primaryHeader, secondDarayHeader, paragraph, btn } = props.banner;
   return (
     <div className="banner">
       <div className="container">
         <div className="row ">
           <div className="col-md-6 banner_left">
             <div>
-              <p className="banner_paragraph">
-                Welcome to Chittagong hill tracts webstie
-              </p>
+              <p className="banner_paragraph">{primaryHeader}</p>
             </div>
             <div>
-              <h1 className="banner_heading">Chittagong hill tracts</h1>
+              <h1 className="banner_heading">{secondDarayHeader}</h1>
             </div>
             <div>
-              <p className="banner_paragraph">
-                Chittagong hill tracts is a non-profit online archive and community.
-                We are conserving and promoting cultures of world indigenous
-                community. You can share and explore new ideas & thoughts
-                representing diverse views of diverse people.
-              </p>
+              <p className="banner_paragraph">{paragraph}</p>
             </div>
             <div>
               <Link className="discover" to="/articles">
-                <h5>Discover Hill tracts</h5>
+                <h5>{btn}</h5>
               </Link>
             </div>
           </div>

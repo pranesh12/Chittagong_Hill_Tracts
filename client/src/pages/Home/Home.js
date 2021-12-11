@@ -10,6 +10,8 @@ import { getArticleData } from "../../Redux/actions/article";
 import { useSelector } from "react-redux";
 import SubArticle from "../../components/SubArticle/SubArticle";
 import { changeLanguage } from "../../Redux/actions/changingLanguage";
+import englishLanguageData from "../../data/englishLanguageData";
+import chakmaLanguageData from "../../data/chakmaLanguageData";
 
 const Home = () => {
   const articleData = useSelector((state) => state.articleReducer.fetchDAta);
@@ -21,32 +23,29 @@ const Home = () => {
     dispatch(getArticleData());
     dispatch(changeLanguage(false));
   }, [dispatch]);
-  const englishLanguage = {
-    banner: {
-      first: "Welcome to Chittagong hill tracts webstie",
-    },
-  };
-
-  const chakmaLanguage = {
-    banner: {
-      first: "chakma testing if chakma is true",
-    },
-  };
 
   return (
     <div>
       <Navbar />
       {currentLanguage ? (
-        <Banner props={chakmaLanguage} />
+        <>
+          <Banner props={chakmaLanguageData} />
+          <Section props={chakmaLanguageData} />
+          <About props={chakmaLanguageData} />
+          <SubArticle data={articleData} />
+          <Information props={chakmaLanguageData} />
+          <Footer props={chakmaLanguageData} />
+        </>
       ) : (
-        <Banner props={englishLanguage} />
+        <>
+          <Banner props={englishLanguageData} />
+          <Section props={englishLanguageData} />
+          <About props={englishLanguageData} />
+          <SubArticle data={articleData} />
+          <Information props={englishLanguageData} />
+          <Footer props={englishLanguageData} />
+        </>
       )}
-      <Banner />
-      <Section />
-      <About />
-      <SubArticle data={articleData} />
-      <Information />
-      <Footer />
     </div>
   );
 };

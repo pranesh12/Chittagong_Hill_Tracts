@@ -1,43 +1,39 @@
 import React from "react";
 import "./About.css";
 import person from "../../images/person.png";
-const About = () => {
+const About = ({ props }) => {
+  const { header, detail, list, btn } = props.about;
   return (
     <div className="about">
       <div className=" container">
         <div className="row about_row">
           <div className="col-md-6">
             <div className="about_header">
-              <h1>Want to Know more</h1>
+              <h1>{header}</h1>
             </div>
             <div className="about_content">
-              <p>
-                Chittagong hill tracts is a non-profit online archive and community.
-                We are conserving and promoting cultures of world indigenous
-                community. You can share and explore new ideas & thoughts
-                representing diverse views of diverse people.zs
-              </p>
+              <p>{detail}</p>
             </div>
             <div className="about_iconlist">
               <div>
                 <i class="far fa-lightbulb"> </i>
-                <span className="m-3">Discover hill tracts</span>
+                <span className="m-3">{list.first}</span>
               </div>
               <div>
                 <i class="fas fa-language"></i>
-                <span className="m-3">Learn tribe languages</span>
+                <span className="m-3">{list.second}</span>
               </div>
               <div>
                 <i class="fas fa-drafting-compass"></i>
-                <span className="m-3">Explore posiblities</span>
+                <span className="m-3">{list.third}</span>
               </div>
               <div>
                 <i class="fab fa-wpexplorer"></i>
-                <span className="m-3">Explore Something Exciting</span>
+                <span className="m-3">{list.forth}</span>
               </div>
             </div>
             <div>
-              <button className="btn about_button"> Contact us</button>
+              <button className="btn about_button">{btn}</button>
             </div>
           </div>
           <div className="col-md-6">
