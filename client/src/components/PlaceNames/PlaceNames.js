@@ -10,6 +10,7 @@ const PlaceNames = ({ district }) => {
   const handlePlace = (e) => {
     const place = e.target.innerText;
     const district = districtName.districtName;
+
     dispatch(findTourguideByDistrictAndPlace(district, place));
   };
 

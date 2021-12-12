@@ -35,13 +35,13 @@ export const tourGuideDetails = (district) => async (dispatch) => {
 
 export const findTourguideByDistrictAndPlace =
   (district, place) => async (dispatch) => {
-    const loaction = {
-      district,
-      place,
-    };
     dispatch({ type: FIND_TOURGUIDES_BY_PLACE_AND_DISTRICT });
+    console.log(district, place);
+
     try {
-      const res = await axios.get(url + `tourGuidesByPlace?locatin=${loaction}`);
+      const res = await axios.get(
+        url + `tourGuidesByPlace?district=${district}&place=${place}`
+      );
       dispatch({
         type: FIND_TOURGUIDES_BY_PLACE_AND_DISTRICT_SUCCESS,
         payload: res,
