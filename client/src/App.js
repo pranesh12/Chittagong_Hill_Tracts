@@ -15,6 +15,8 @@ import TourGuide from "./pages/TourGuide/TourGuide";
 import Khagrachari from "./pages/TourGuide/Khagrachari";
 import Bandarban from "./pages/TourGuide/Bandarban";
 import Rangamati from "./pages/TourGuide/Rangamati";
+import PeopleList from "./components/PeopleList/PeopleList";
+import PeopleDetails from "./components/PeopleList/PeopleDetails";
 
 function App() {
   return (
@@ -30,6 +32,8 @@ function App() {
             <Route path="/khagrachari" component={Khagrachari}></Route>
             <Route path="/rangamati" component={Rangamati}></Route>
             <Route path="/bandarban" component={Bandarban}></Route>
+            <Route path="/filterTourguidesList" component={PeopleList}></Route>
+            <Route path="/:guideId" component={PeopleDetails}></Route>
             <Route exact path="/" component={Home}></Route>
           </Switch>
         </Route>

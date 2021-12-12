@@ -36,7 +36,6 @@ export const tourGuideDetails = (district) => async (dispatch) => {
 export const findTourguideByDistrictAndPlace =
   (district, place) => async (dispatch) => {
     dispatch({ type: FIND_TOURGUIDES_BY_PLACE_AND_DISTRICT });
-    console.log(district, place);
 
     try {
       const res = await axios.get(

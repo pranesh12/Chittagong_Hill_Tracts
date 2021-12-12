@@ -19,7 +19,7 @@ const tourGuidesByPalce = async (req, res) => {
   console.log(district, place);
   const guides = await tourGuideModel.find({ district, place });
   res.json(guides);
-  console.log(guides);
+
   try {
   } catch (error) {
     console.log(error);
