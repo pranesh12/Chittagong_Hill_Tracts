@@ -8,10 +8,7 @@ import { changeLanguage } from "../../Redux/actions/changingLanguage";
 const Navbar = () => {
   const dispatch = useDispatch();
   const currentUserState = useSelector((state) => state.userReducer.currentUser);
-  const currentLanguage = useSelector(
-    (state) => state.languageReducer.changeToChakmaLange
-  );
-  console.log(currentLanguage);
+
   const { name } = currentUserState;
 
   return (
@@ -52,6 +49,39 @@ const Navbar = () => {
                   Articles
                 </Link>
               </li>
+
+              <li className="nav-item">
+                <div class="dropdown">
+                  <Link
+                    className="btn btn-secondary dropdown-toggle"
+                    href="#"
+                    role="button"
+                    id="dropdownMenuLink"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Tour Guide
+                  </Link>
+
+                  <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li>
+                      <Link className="dropdown-item" to="/khagrachari">
+                        Khagrachari
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/rangamati">
+                        Rangamati
+                      </Link>
+                    </li>
+                    <li>
+                      <Link className="dropdown-item" to="/bandarban">
+                        Bandarban
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </li>
             </ul>
 
             <ul className="navbar-nav ">
@@ -68,7 +98,7 @@ const Navbar = () => {
                     Languages
                   </Link>
 
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <li onClick={() => dispatch(changeLanguage(true))}>
                       <Link className="dropdown-item" href="#">
                         Chakma

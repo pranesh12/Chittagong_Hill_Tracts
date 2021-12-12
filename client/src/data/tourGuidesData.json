@@ -1,0 +1,72 @@
+[
+  {
+    "district": "khagrachari",
+    "place": "alutila",
+    "info": {
+      "name": "pranesh chakma",
+      "phone_number": "0151522112",
+      "gmail": "praneshchakama6@gmail.com",
+      "status": "avilable"
+    }
+  },
+  {
+    "district": "rangamati",
+    "place": "furomon",
+    "info": {
+      "name": "durjoy chakma",
+      "phone_number": "0820394809284",
+      "gmail": "plajf@ljaslfj",
+      "status": "avilable"
+    }
+  },
+  {
+    "district": "bandarban",
+    "place": "nilgiri",
+    "info": {
+      "name": "kaomin chakma",
+      "phone_number": "94729743982",
+      "gmail": "lasldfjl@.com",
+      "status": "avilable"
+    }
+  },
+  {
+    "district": "khagrachari",
+    "place": "debotapukur",
+    "info": {
+      "name": "bkash chakma",
+      "phone_number": "0151522112",
+      "gmail": "asdfjlaj@gmail.com",
+      "status": "avilable"
+    }
+  },
+  {
+    "district": "khagrachari",
+    "place": "alutila",
+    "info": {
+      "name": "loll chakma",
+      "phone_number": "1233453453",
+      "gmail": "dummy@gmail.com",
+      "status": "not-avilable"
+    }
+  },
+  {
+    "district": "khagrachari",
+    "place": "alutila",
+    "info": {
+      "name": "lksjd chakma",
+      "phone_number": "3495798374",
+      "gmail": "dajdlkj@gmail.com",
+      "status": "not-avilable"
+    }
+  },
+  {
+    "district": "bandarban",
+    "place": "nilachol",
+    "info": {
+      "name": "pranesh chakma",
+      "phone_number": "0151522112",
+      "gmail": "woijlkjaslkdjf@gmail.com",
+      "status": "avilable"
+    }
+  }
+]

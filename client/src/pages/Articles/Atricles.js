@@ -9,9 +9,13 @@ import Footer from "../../components/Footer/Footer";
 const Atricles = () => {
   const courseState = useSelector((state) => state.articleReducer.fetchDAta);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getArticleData());
   }, [dispatch]);
+
+
+  console.log(courseState)
 
   return (
     <>

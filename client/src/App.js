@@ -11,6 +11,10 @@ import Auth from "./pages/Auth/Auth";
 import Home from "./pages/Home/Home";
 import AdminPrivateRoute from "./pages/PrivateRoute/AdminPrivateRoute";
 import ArticleUpdate from "./pages/Admin/ArticleUpdate";
+import TourGuide from "./pages/TourGuide/TourGuide";
+import Khagrachari from "./pages/TourGuide/Khagrachari";
+import Bandarban from "./pages/TourGuide/Bandarban";
+import Rangamati from "./pages/TourGuide/Rangamati";
 
 function App() {
   return (
@@ -22,6 +26,10 @@ function App() {
             <Route path="/auth" component={Auth}></Route>
             <Route path="/:name/:id" component={Details}></Route>
             <Route path="/articles" component={Atricles}></Route>
+            <Route path="/tourguide" component={TourGuide}></Route>
+            <Route path="/khagrachari" component={Khagrachari}></Route>
+            <Route path="/rangamati" component={Rangamati}></Route>
+            <Route path="/bandarban" component={Bandarban}></Route>
             <Route exact path="/" component={Home}></Route>
           </Switch>
         </Route>

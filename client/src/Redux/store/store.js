@@ -12,6 +12,11 @@ import {
 } from "../reducers/article";
 import { userReducer } from "../reducers/user";
 import { languageReducer } from "../reducers/language";
+import {
+  findAllTourGuides,
+  tourGuideDetailReducer,
+  findGuidesByDistrictAndPlaceReducer,
+} from "../reducers/TourGuide";
 
 const finalReducers = combineReducers({
   articleReducer: articleReducer,
@@ -22,6 +27,9 @@ const finalReducers = combineReducers({
   addArticleReducer: addArticleReducer,
   deleteArticleReducer: deleteArticleReducer,
   languageReducer: languageReducer,
+  findingTourGuideReduer: findAllTourGuides,
+  tourGuideDetailReducer: tourGuideDetailReducer,
+  findGuidesByDistrictAndPlaceReducer: findGuidesByDistrictAndPlaceReducer,
 });
 
 const currentUser = localStorage.getItem("currentUser")
