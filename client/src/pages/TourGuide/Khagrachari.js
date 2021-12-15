@@ -1,25 +1,21 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../../components/Navbar/Navbar";
 import PlaceNames from "../../components/PlaceNames/PlaceNames";
+import { getPlaceByDistrict } from "../../Redux/actions/Tourguide";
 
 const Khagrachari = () => {
-  const location = useLocation();
-  console.log(location.pathname.slice(1));
-  const district = [
-    { districtName: "khagrachari" },
-    {
-      placeNames: [
-        { placeName: "alutila", id: 1 },
-        { placeName: "debotapukur", id: 2 },
-        { placeName: "hatimura", id: 3 },
-      ],
-    },
-  ];
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPlaceByDistrict("khagrachari"));
+  }, [dispatch]);
+  const placeState = useSelector((state) => state.getPlaceReducer.fetchDAta?.data);
+
   return (
     <>
       <Navbar />
-      <PlaceNames district={district} />
+      <PlaceNames district={placeState} />
     </>
   );
 };

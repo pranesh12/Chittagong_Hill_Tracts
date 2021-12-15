@@ -1,22 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../../components/Navbar/Navbar";
 import PlaceNames from "../../components/PlaceNames/PlaceNames";
+import { getPlaceByDistrict } from "../../Redux/actions/Tourguide";
 
 const Rangamati = () => {
-  const district = [
-    { districtName: "rangamati" },
-    {
-      placeNames: [
-        { placeName: "suvholong", id: 4 },
-        { placeName: "rangamati sadar", id: 5 },
-        { placeName: "sajek", id: 6 },
-      ],
-    },
-  ];
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPlaceByDistrict("rangamati"));
+  }, [dispatch]);
+  const placeState = useSelector((state) => state.getPlaceReducer.fetchDAta?.data);
+
   return (
     <>
       <Navbar />
-      <PlaceNames district={district} />
+      <PlaceNames district={placeState} />
     </>
   );
 };

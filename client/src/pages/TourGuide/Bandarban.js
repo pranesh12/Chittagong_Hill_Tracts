@@ -1,22 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../../components/Navbar/Navbar";
 import PlaceNames from "../../components/PlaceNames/PlaceNames";
+import { getPlaceByDistrict } from "../../Redux/actions/Tourguide";
 
 const Bandarban = () => {
-  const district = [
-    { districtName: "bandarban" },
-    {
-      placeNames: [
-        { placeName: "nilgiri", id: 7 },
-        { placeName: "nilachol", id: 9 },
-        { placeName: "bandarban sadar", id: 20 },
-      ],
-    },
-  ];
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPlaceByDistrict("bandarban"));
+  }, [dispatch]);
+  const placeState = useSelector((state) => state.getPlaceReducer.fetchDAta?.data);
+
   return (
     <>
       <Navbar />
-      <PlaceNames district={district} />
+      <PlaceNames district={placeState} />
     </>
   );
 };

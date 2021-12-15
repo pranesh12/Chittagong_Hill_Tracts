@@ -4,25 +4,24 @@ import { findTourguideByDistrictAndPlace } from "../../Redux/actions/Tourguide";
 import { Link } from "react-router-dom";
 
 const PlaceNames = ({ district }) => {
-  const [districtName, placeNames] = district;
+  const districtName = district?.[0].district;
   const dispatch = useDispatch();
+
   const handlePlace = (e) => {
     const place = e.target.innerText;
-    const district = districtName.districtName;
-
-    dispatch(findTourguideByDistrictAndPlace(district, place));
+    dispatch(findTourguideByDistrictAndPlace(districtName, place));
   };
 
   return (
     <>
       <div className="container">
-        <h1>{districtName.districtName}</h1>
+        <h1>{districtName}</h1>
         <ul className="list-group">
-          {placeNames.placeNames.map((place) => {
+          {district?.map((place) => {
             return (
               <Link to="/filterTourguidesList">
                 <li onClick={handlePlace} key={place.id} className="list-group-item">
-                  {place.placeName}
+                  {place.place}
                 </li>
               </Link>
             );

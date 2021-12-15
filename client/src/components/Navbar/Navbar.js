@@ -1,22 +1,15 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "./Navbar.css";
 import { logoutUser } from "../../Redux/actions/userAction";
 import { changeLanguage } from "../../Redux/actions/changingLanguage";
-import { getPlaceByDistrict } from "../../Redux/actions/Tourguide";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const history = useHistory();
+
   const currentUserState = useSelector((state) => state.userReducer.currentUser);
   const { name } = currentUserState;
-
-  const hendleDistrict = (e) => {
-    const district = e.target.innerText.toLowerCase();
-    dispatch(getPlaceByDistrict(district));
-    history.push(`/${district}`);
-  };
 
   return (
     <div className="">
@@ -71,14 +64,20 @@ const Navbar = () => {
                   </Link>
 
                   <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li onClick={hendleDistrict}>
-                      <Link className="dropdown-item">Khagrachari</Link>
+                    <li>
+                      <Link to="/khagrachari" className="dropdown-item">
+                        Khagrachari
+                      </Link>
                     </li>
-                    <li onClick={hendleDistrict}>
-                      <Link className="dropdown-item">Rangamati</Link>
+                    <li>
+                      <Link to="/rangamati" className="dropdown-item">
+                        Rangamati
+                      </Link>
                     </li>
-                    <li onClick={hendleDistrict}>
-                      <Link className="dropdown-item">Bandarban</Link>
+                    <li>
+                      <Link to="/bandarban" className="dropdown-item">
+                        Bandarban
+                      </Link>
                     </li>
                   </ul>
                 </div>

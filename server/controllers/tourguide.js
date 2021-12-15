@@ -29,7 +29,6 @@ const tourGuidesByPalce = async (req, res) => {
 const tourGuideByDistrict = async (req, res) => {
   try {
     const { district } = req.query;
-    console.log(district);
     const guides = await tourGuideModel.find({ district });
     res.json(guides);
   } catch (error) {
