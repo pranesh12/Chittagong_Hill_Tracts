@@ -16,6 +16,7 @@ import {
   findAllTourGuides,
   tourGuideDetailReducer,
   findGuidesByDistrictAndPlaceReducer,
+  addTourGuideReducer,
 } from "../reducers/TourGuide";
 
 const finalReducers = combineReducers({
@@ -29,6 +30,7 @@ const finalReducers = combineReducers({
   languageReducer: languageReducer,
   findingTourGuideReduer: findAllTourGuides,
   tourGuideDetailReducer: tourGuideDetailReducer,
+  addTourGuideReducer: addTourGuideReducer,
   findGuidesByDistrictAndPlaceReducer: findGuidesByDistrictAndPlaceReducer,
 });
 

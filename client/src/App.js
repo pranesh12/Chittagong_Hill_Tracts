@@ -17,6 +17,7 @@ import Bandarban from "./pages/TourGuide/Bandarban";
 import Rangamati from "./pages/TourGuide/Rangamati";
 import PeopleList from "./components/PeopleList/PeopleList";
 import PeopleDetails from "./components/PeopleList/PeopleDetails";
+import AddTourGuide from "./pages/Admin/AddTourguide";
 
 function App() {
   return (
@@ -50,6 +51,9 @@ function App() {
             </AdminPrivateRoute>
             <AdminPrivateRoute exact path="/admin/addteacher">
               <AddTeacher />
+            </AdminPrivateRoute>
+            <AdminPrivateRoute exact path="/admin/addtourguide">
+              <AddTourGuide />
             </AdminPrivateRoute>
             <AdminPrivateRoute exact path="/admin/edit/:id">
               <ArticleUpdate />

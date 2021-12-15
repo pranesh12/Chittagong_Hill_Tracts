@@ -8,6 +8,9 @@ import {
   FIND_TOURGUIDES_BY_PLACE_AND_DISTRICT,
   FIND_TOURGUIDES_BY_PLACE_AND_DISTRICT_SUCCESS,
   FIND_TOURGUIDES_BY_PLACE_AND_DISTRICT_FAILED,
+  ADD_TOUR_GUIDE,
+  ADD_TOUR_GUIDE_SUCCESS,
+  ADD_TOUR_GUIDE_FAILED,
 } from "../../actionType/actionType";
 
 import axios from "axios";
@@ -52,3 +55,14 @@ export const findTourguideByDistrictAndPlace =
       });
     }
   };
+
+export const addTourGuide = (guideData) => async (dispatch, getState) => {
+  const email = getState().userReducer.currentUser.email;
+  dispatch({ type: ADD_TOUR_GUIDE });
+  try {
+    const res = await axios.post(url + `addtourguide?email=${email}`, guideData);
+    dispatch({ type: ADD_TOUR_GUIDE_SUCCESS, payload: res });
+  } catch (error) {
+    dispatch({ type: ADD_TOUR_GUIDE_FAILED, payload: error });
+  }
+};

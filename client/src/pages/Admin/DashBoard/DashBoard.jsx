@@ -28,6 +28,12 @@ const Dashboard = () => {
             <span className="sidebar_heading">Add Article</span>
           </NavLink>
         </li>
+        <li>
+          <NavLink to="/admin/addtourguide">
+            <span className="fa fa-user"></span>{" "}
+            <span className="sidebar_heading">Add Tourguide</span>
+          </NavLink>
+        </li>
         <li onClick={() => dispatch(logoutUser())}>
           <NavLink to="#">
             <i class="fas fa-sign-out-alt"></i>{" "}
