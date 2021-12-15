@@ -11,6 +11,9 @@ import {
   ADD_TOUR_GUIDE,
   ADD_TOUR_GUIDE_FAILED,
   ADD_TOUR_GUIDE_SUCCESS,
+  GET_PLACE_BY_DISTRICT,
+  GET_PLACE_BY_DISTRICT_SUCCESS,
+  GET_PLACE_BY_DISTRICT_FAILED,
 } from "../../actionType/actionType";
 
 //All Tours guide data
@@ -107,6 +110,32 @@ export const addTourGuideReducer = (state = {}, action) => {
         fetchDAta: action.payload,
       };
     case ADD_TOUR_GUIDE_FAILED:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return {
+        ...state,
+      };
+  }
+};
+
+export const getPlaceReducer = (state = {}, action) => {
+  switch (action.type) {
+    case GET_PLACE_BY_DISTRICT:
+      return {
+        ...state,
+        loading: true,
+      };
+    case GET_PLACE_BY_DISTRICT_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        fetchDAta: action.payload,
+      };
+    case GET_PLACE_BY_DISTRICT_FAILED:
       return {
         ...state,
         loading: false,

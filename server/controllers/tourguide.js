@@ -25,6 +25,18 @@ const tourGuidesByPalce = async (req, res) => {
   }
 };
 
+//TourGuides by district
+const tourGuideByDistrict = async (req, res) => {
+  try {
+    const { district } = req.query;
+    console.log(district);
+    const guides = await tourGuideModel.find({ district });
+    res.json(guides);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 //tour create
 const addTourGuide = async (req, res) => {
   try {
@@ -94,4 +106,5 @@ module.exports = {
   addTourGuide: addTourGuide,
   updateTourGuide: updateTourGuide,
   removeTourGuide: removeTourGuide,
+  tourGuideByDistrict: tourGuideByDistrict,
 };

@@ -11,6 +11,9 @@ import {
   ADD_TOUR_GUIDE,
   ADD_TOUR_GUIDE_SUCCESS,
   ADD_TOUR_GUIDE_FAILED,
+  GET_PLACE_BY_DISTRICT,
+  GET_PLACE_BY_DISTRICT_SUCCESS,
+  GET_PLACE_BY_DISTRICT_FAILED,
 } from "../../actionType/actionType";
 
 import axios from "axios";
@@ -64,5 +67,15 @@ export const addTourGuide = (guideData) => async (dispatch, getState) => {
     dispatch({ type: ADD_TOUR_GUIDE_SUCCESS, payload: res });
   } catch (error) {
     dispatch({ type: ADD_TOUR_GUIDE_FAILED, payload: error });
+  }
+};
+
+export const getPlaceByDistrict = (district) => async (dispatch) => {
+  dispatch({ type: GET_PLACE_BY_DISTRICT });
+  try {
+    const res = await axios.get(url + `getPlaces?district=${district}`);
+    dispatch({ type: GET_PLACE_BY_DISTRICT_SUCCESS, payload: res });
+  } catch (error) {
+    dispatch({ type: GET_PLACE_BY_DISTRICT_FAILED, payload: error });
   }
 };
