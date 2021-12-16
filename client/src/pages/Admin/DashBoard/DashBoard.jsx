@@ -29,6 +29,12 @@ const Dashboard = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/admin/tourguidelist">
+            <span className="fa fa-user"></span>{" "}
+            <span className="sidebar_heading">Tour Guide List</span>
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/admin/addtourguide">
             <span className="fa fa-user"></span>{" "}
             <span className="sidebar_heading">Add Tourguide</span>

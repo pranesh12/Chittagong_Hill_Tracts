@@ -3,7 +3,11 @@ const userModel = require("../models/user");
 
 const allTourGuides = async (req, res) => {
   try {
-  } catch (error) {}
+    const guides = await tourGuideModel.find({});
+    res.json(guides);
+  } catch (error) {
+    res.json(error);
+  }
 };
 const tourGuideDetails = async (req, res) => {
   try {
@@ -79,7 +83,7 @@ const updateTourGuide = async (req, res) => {
       },
     };
 
-    await articleModel.findByIdAndUpdate(id, newData, { new: true });
+    await tourGuideModel.findByIdAndUpdate(id, newData, { new: true });
     res.status(200).json({ message: "update successfull" });
   } catch (error) {
     res.json(error);
@@ -90,8 +94,8 @@ const updateTourGuide = async (req, res) => {
 const removeTourGuide = async (req, res) => {
   try {
     const { id } = req.query;
-    await articleModel.deleteOne({ _id: id });
-    res.json("Data removded");
+    await tourGuideModel.deleteOne({ _id: id });
+    res.json("TourGuide  removed");
   } catch (error) {
     res.json(error);
   }

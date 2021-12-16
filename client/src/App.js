@@ -17,7 +17,7 @@ import Rangamati from "./pages/TourGuide/Rangamati";
 import PeopleList from "./components/PeopleList/PeopleList";
 import PeopleDetails from "./components/PeopleList/PeopleDetails";
 import AddTourGuide from "./pages/Admin/AddTourguide";
-import Places from "./components/Places/Places";
+import TourGuideList from "./pages/Admin/TourGuideList";
 
 function App() {
   return (
@@ -55,6 +55,9 @@ function App() {
             </AdminPrivateRoute>
             <AdminPrivateRoute exact path="/admin/addtourguide">
               <AddTourGuide />
+            </AdminPrivateRoute>
+            <AdminPrivateRoute exact path="/admin/tourguidelist">
+              <TourGuideList />
             </AdminPrivateRoute>
             <AdminPrivateRoute exact path="/admin/edit/:id">
               <ArticleUpdate />

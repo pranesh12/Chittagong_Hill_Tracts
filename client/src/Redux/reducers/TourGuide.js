@@ -14,10 +14,16 @@ import {
   GET_PLACE_BY_DISTRICT,
   GET_PLACE_BY_DISTRICT_SUCCESS,
   GET_PLACE_BY_DISTRICT_FAILED,
+  DELETE_TOUR_GUIDE,
+  DELETE_TOUR_GUIDE_SUCCESS,
+  DELETE_TOUR_GUIDE_FAILED,
+  EDIT_TOUR_GUIDE,
+  EDIT_TOUR_GUIDE_SUCCESS,
+  EDIT_TOUR_GUIDE_FAILED,
 } from "../../actionType/actionType";
 
 //All Tours guide data
-export const findAllTourGuides = (state = {}, action) => {
+export const getAllTourGuideReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_ALL_TOUR_GUIDE:
       return {
@@ -136,6 +142,58 @@ export const getPlaceReducer = (state = {}, action) => {
         fetchDAta: action.payload,
       };
     case GET_PLACE_BY_DISTRICT_FAILED:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return {
+        ...state,
+      };
+  }
+};
+
+export const deleteTourguideReducer = (state = {}, action) => {
+  switch (action.type) {
+    case DELETE_TOUR_GUIDE:
+      return {
+        ...state,
+        loading: true,
+      };
+    case DELETE_TOUR_GUIDE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        fetchDAta: action.payload,
+      };
+    case DELETE_TOUR_GUIDE_FAILED:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return {
+        ...state,
+      };
+  }
+};
+
+export const editTourguideReducer = (state = {}, action) => {
+  switch (action.type) {
+    case EDIT_TOUR_GUIDE:
+      return {
+        ...state,
+        loading: true,
+      };
+    case EDIT_TOUR_GUIDE_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        fetchDAta: action.payload,
+      };
+    case EDIT_TOUR_GUIDE_FAILED:
       return {
         ...state,
         loading: false,
