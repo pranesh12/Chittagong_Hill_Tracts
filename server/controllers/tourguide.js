@@ -45,7 +45,6 @@ const addTourGuide = async (req, res) => {
   try {
     const { district, place, name, phone_number, gmail, status } = req.body;
     const { email } = req.query;
-    console.log(district);
     const isAdmin = await userModel.findOne({ email });
     if (isAdmin) {
       await tourGuideModel.create({
@@ -56,6 +55,7 @@ const addTourGuide = async (req, res) => {
           phone_number,
           gmail,
           status,
+          img,
         },
       });
       res.status(200).send("guided added succssfully");
@@ -67,24 +67,35 @@ const addTourGuide = async (req, res) => {
   }
 };
 
-//Tour update
+//TourbyId
 
-const updateTourGuide = async (req, res) => {
-  const { id, newData } = req.body;
-  const { category, writer, header, article, img } = newData;
+const tourguideById = async (req, res) => {
+  try {
+    const { id } = req.query;
+    const foundedGuide = await tourGuideModel.findOne({ _id: id });
+    res.json(foundedGuide);
+  } catch (error) {
+    res.json(error);
+  }
+};
+//Tour Edit
+const editTourguide = async (req, res) => {
+  const { id, newtourGuide } = req.body;
+  const { district, place, name, phone_number, gmail, status, img } = newtourGuide;
   try {
     const newData = {
-      category,
-      writer,
-      data: {
-        image: img,
-        header,
-        article,
+      district,
+      place,
+      info: {
+        name,
+        phone_number,
+        gmail,
+        status,
+        img,
       },
     };
-
     await tourGuideModel.findByIdAndUpdate(id, newData, { new: true });
-    res.status(200).json({ message: "update successfull" });
+    res.status(200).json({ message: "Tour guide updated successfull" });
   } catch (error) {
     res.json(error);
   }
@@ -107,7 +118,8 @@ module.exports = {
   createTrourGuide: createTrourGuide,
   tourGuidesByPalce: tourGuidesByPalce,
   addTourGuide: addTourGuide,
-  updateTourGuide: updateTourGuide,
+  editTourguide: editTourguide,
   removeTourGuide: removeTourGuide,
   tourGuideByDistrict: tourGuideByDistrict,
+  tourguideById: tourguideById,
 };

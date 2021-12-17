@@ -20,6 +20,9 @@ import {
   EDIT_TOUR_GUIDE,
   EDIT_TOUR_GUIDE_SUCCESS,
   EDIT_TOUR_GUIDE_FAILED,
+  FIND_TOUR_GUIDEBY_ID,
+  FIND_TOUR_GUIDEBY_ID_FAILED,
+  FIND_TOUR_GUIDEBY_ID_SUCCESS,
 } from "../../actionType/actionType";
 
 //All Tours guide data
@@ -191,9 +194,35 @@ export const editTourguideReducer = (state = {}, action) => {
       return {
         ...state,
         loading: false,
-        fetchDAta: action.payload,
+        message: action.payload,
       };
     case EDIT_TOUR_GUIDE_FAILED:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return {
+        ...state,
+      };
+  }
+};
+
+export const findTourGuideByIdReducer = (state = {}, action) => {
+  switch (action.type) {
+    case FIND_TOUR_GUIDEBY_ID:
+      return {
+        ...state,
+        loading: true,
+      };
+    case FIND_TOUR_GUIDEBY_ID_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        tourguideData: action.payload,
+      };
+    case FIND_TOUR_GUIDEBY_ID_FAILED:
       return {
         ...state,
         loading: false,

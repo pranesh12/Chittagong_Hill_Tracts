@@ -3,11 +3,12 @@ const express = require("express");
 const {
   allTourGuides,
   tourGuideDetails,
-  updateTourGuide,
+  editTourguide,
   addTourGuide,
   tourGuidesByPalce,
   tourGuideByDistrict,
   removeTourGuide,
+  tourguideById,
 } = require("../controllers/tourguide");
 
 const router = express.Router();
@@ -17,6 +18,7 @@ router.get("/tourguides", allTourGuides);
 router.get("/getPlaces", tourGuideByDistrict);
 router.get("/tourGuidesByPlace", tourGuidesByPalce);
 router.post("/addtourguide", addTourGuide);
-router.patch("/updatetourguide", updateTourGuide);
+router.put("/editTourGuide", editTourguide);
 router.delete("/tourguide", removeTourGuide);
+router.get("/gettourguide", tourguideById);
 module.exports = router;

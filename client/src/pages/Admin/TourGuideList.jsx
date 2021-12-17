@@ -8,7 +8,7 @@ import { getAllTourGuide, deleteTourGuide } from "../../Redux/actions/Tourguide"
 const TourGuideList = () => {
   const dispatch = useDispatch();
   const tourGuidesData = useSelector(
-    (state) => state.getAllTourGuideReducer?.fetchDAta?.data
+    (state) => state.getAllTourGuideReducer?.fetchDAta
   );
 
   useEffect(() => {
@@ -16,7 +16,6 @@ const TourGuideList = () => {
   }, [dispatch]);
 
   const deleteData = (id) => {
-    console.log(id);
     dispatch(deleteTourGuide(id));
   };
 
@@ -44,15 +43,15 @@ const TourGuideList = () => {
                 return (
                   <>
                     <tr>
-                      <td>{ed.info.name}</td>
+                      <td>{ed.info?.name}</td>
                       <td>{ed.district}</td>
                       <td>{ed.place}</td>
-                      <td>{ed.info.phone_number}</td>
-                      <td>{ed.info.gmail}</td>
+                      <td>{ed.info?.phone_number}</td>
+                      <td>{ed.info?.gmail}</td>
                       <td>
                         <div className="d-flex justify-content-around">
                           <div>
-                            <Link to={`/admin/edit/${ed._id}`}>
+                            <Link to={`/admin/tourguide/${ed._id}`}>
                               <i className="far fa-edit editIcon"></i>
                             </Link>
                           </div>

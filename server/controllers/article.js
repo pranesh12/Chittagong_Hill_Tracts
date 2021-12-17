@@ -60,7 +60,6 @@ const updateArticle = async (req, res) => {
         article,
       },
     };
-
     await articleModel.findByIdAndUpdate(id, newData, { new: true });
     res.status(200).json({ message: "update successfull" });
   } catch (error) {

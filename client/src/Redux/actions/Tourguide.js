@@ -20,6 +20,9 @@ import {
   EDIT_TOUR_GUIDE,
   EDIT_TOUR_GUIDE_SUCCESS,
   EDIT_TOUR_GUIDE_FAILED,
+  FIND_TOUR_GUIDEBY_ID,
+  FIND_TOUR_GUIDEBY_ID_SUCCESS,
+  FIND_TOUR_GUIDEBY_ID_FAILED,
 } from "../../actionType/actionType";
 
 import axios from "axios";
@@ -29,7 +32,7 @@ export const getAllTourGuide = () => async (dispatch) => {
   dispatch({ type: GET_ALL_TOUR_GUIDE });
   try {
     const res = await axios.get(url + `tourguides`);
-    dispatch({ type: GET_ALL_TOUR_GUIDE_SUCCESS, payload: res });
+    dispatch({ type: GET_ALL_TOUR_GUIDE_SUCCESS, payload: res.data });
   } catch (error) {
     dispatch({ type: GET_ALL_TOUR_GUIDE_FAILED, payload: error });
   }
@@ -86,6 +89,18 @@ export const getPlaceByDistrict = (district) => async (dispatch) => {
   }
 };
 
+//findTour By id
+export const findTourGuideById = (id) => async (dispatch) => {
+  dispatch({ type: FIND_TOUR_GUIDEBY_ID });
+  try {
+    const res = await axios.get(url + `gettourguide?id=${id}`);
+    dispatch({ type: FIND_TOUR_GUIDEBY_ID_SUCCESS, payload: res.data });
+  } catch (error) {
+    dispatch({ type: FIND_TOUR_GUIDEBY_ID_FAILED, payload: error });
+  }
+};
+
+//deleteTourguide
 export const deleteTourGuide = (id) => async (dispatch, getState) => {
   const email = getState().userReducer.currentUser.email;
   dispatch({ type: DELETE_TOUR_GUIDE });
@@ -97,6 +112,8 @@ export const deleteTourGuide = (id) => async (dispatch, getState) => {
   }
 };
 
+//editTourguide
+
 export const editTourGuide = (id, newtourGuide) => async (dispatch, getState) => {
   const email = getState().userReducer.currentUser.email;
   dispatch({ type: EDIT_TOUR_GUIDE });
@@ -104,10 +121,10 @@ export const editTourGuide = (id, newtourGuide) => async (dispatch, getState) =>
     id,
     newtourGuide,
   };
-
+  console.log(updataedData);
   try {
-    const res = await axios.put(url + `getPlaces?email=${email}`, updataedData);
-    dispatch({ type: EDIT_TOUR_GUIDE_SUCCESS, payload: res });
+    const res = await axios.put(url + `editTourGuide?email=${email}`, updataedData);
+    dispatch({ type: EDIT_TOUR_GUIDE_SUCCESS, payload: res.data });
   } catch (error) {
     dispatch({ type: EDIT_TOUR_GUIDE_FAILED, payload: error });
   }
