@@ -3,7 +3,9 @@ const bcrypt = require("bcrypt");
 
 const register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, confirmPassword } = req.body.registerData;
+    const { guide } = req.body;
+
     const hasAccount = await userModel.findOne({ email: email });
     if (!hasAccount) {
       const hashedPassword = await bcrypt.hash(password, 12);
@@ -11,6 +13,7 @@ const register = async (req, res) => {
         name: name,
         email: email,
         password: hashedPassword,
+        isGuide: guide,
       });
       const result = {
         name: newUser.name,
@@ -36,6 +39,7 @@ const login = async (req, res) => {
       name: oldUser.name,
       email: oldUser.email,
       isAdmin: oldUser.isAdmin,
+      isGuide: oldUser.isGuide,
     };
     res.status(200).json(result);
   } catch (error) {

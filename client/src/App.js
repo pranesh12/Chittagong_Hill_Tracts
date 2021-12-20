@@ -30,11 +30,9 @@ function App() {
             <Route path="/auth" component={Auth}></Route>
             <Route path="/:name/:id" component={Details}></Route>
             <Route path="/articles" component={Atricles}></Route>
-
             <Route path="/khagrachari" component={Khagrachari}></Route>
             <Route path="/rangamati" component={Rangamati}></Route>
             <Route path="/bandarban" component={Bandarban}></Route>
-
             <Route path="/filterTourguidesList" component={PeopleList}></Route>
             <Route path="/:guideId" component={PeopleDetails}></Route>
             <Route exact path="/" component={Home}></Route>

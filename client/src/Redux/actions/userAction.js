@@ -15,10 +15,14 @@ import {
 } from "../../actionType/actionType";
 import { url } from "../../api/api";
 
-export const registerUser = (registerData) => async (dispatch) => {
+export const registerUser = (registerData, guide) => async (dispatch) => {
+  const combinedata = {
+    registerData,
+    guide,
+  };
   dispatch({ type: REGISTER_USER });
   try {
-    const res = await axios.post(url + `register`, registerData);
+    const res = await axios.post(url + `register`, combinedata);
     dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data });
     localStorage.setItem("currentUser", JSON.stringify(res.data));
     window.location = "/";

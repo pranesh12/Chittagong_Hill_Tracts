@@ -23,6 +23,9 @@ import {
   FIND_TOUR_GUIDEBY_ID,
   FIND_TOUR_GUIDEBY_ID_SUCCESS,
   FIND_TOUR_GUIDEBY_ID_FAILED,
+  EDIT_TOUR_GUIDE_BYTOURGUIDE,
+  EDIT_TOUR_GUIDE_BYTOURGUIDE_SUCCESS,
+  EDIT_TOUR_GUIDE_BYTOURGUIDE__FAILED,
 } from "../../actionType/actionType";
 
 import axios from "axios";
@@ -112,7 +115,7 @@ export const deleteTourGuide = (id) => async (dispatch, getState) => {
   }
 };
 
-//editTourguide
+//editTourguide by admin
 
 export const editTourGuide = (id, newtourGuide) => async (dispatch, getState) => {
   const email = getState().userReducer.currentUser.email;
@@ -129,3 +132,21 @@ export const editTourGuide = (id, newtourGuide) => async (dispatch, getState) =>
     dispatch({ type: EDIT_TOUR_GUIDE_FAILED, payload: error });
   }
 };
+
+//editTour guide by Tourguide
+export const editTourGuideByGuide =
+  (id, updataedData) => async (dispatch, getState) => {
+    const email = getState().userReducer.currentUser.email;
+    dispatch({ type: EDIT_TOUR_GUIDE_BYTOURGUIDE });
+
+    console.log(updataedData);
+    try {
+      const res = await axios.put(
+        url + `editTourGuide?email=${email}`,
+        updataedData
+      );
+      dispatch({ type: EDIT_TOUR_GUIDE_BYTOURGUIDE_SUCCESS, payload: res.data });
+    } catch (error) {
+      dispatch({ type: EDIT_TOUR_GUIDE_BYTOURGUIDE__FAILED, payload: error });
+    }
+  };

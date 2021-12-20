@@ -8,22 +8,29 @@ import Footer from "../../components/Footer/Footer";
 const Auth = () => {
   const dispatch = useDispatch();
   const [islogin, setIslogin] = useState(false);
+  const [guide, setGuide] = useState(false);
   const [register, setRegister] = useState({
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
+
   const [login, setLogin] = useState({
     email: "",
     password: "",
   });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!islogin) {
       dispatch(loginUser(login));
     } else {
-      dispatch(registerUser(register));
+      if (register.password === register.confirmPassword) {
+        dispatch(registerUser(register, guide));
+      } else {
+        console.log("password mismatch");
+      }
     }
   };
   const handleOnChange = (e) => {
@@ -36,6 +43,10 @@ const Auth = () => {
           ...register,
           [e.target.name]: e.target.value,
         });
+  };
+
+  const handleGuide = () => {
+    setGuide((prev) => !prev);
   };
 
   return (
@@ -113,6 +124,21 @@ const Auth = () => {
                     onChange={handleOnChange}
                     required
                   />
+                </div>
+                <div className="mb-3">
+                  <div class="form-check">
+                    <input
+                      className="form-check-input"
+                      type="checkbox"
+                      defaultChecked={guide}
+                      name="guide"
+                      id="flexCheckDefault"
+                      onChange={handleGuide}
+                    />
+                    <label className="form-check-label" for="flexCheckDefault">
+                      guide
+                    </label>
+                  </div>
                 </div>
               </>
             )}

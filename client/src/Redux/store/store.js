@@ -21,6 +21,7 @@ import {
   deleteTourguideReducer,
   editTourguideReducer,
   findTourGuideByIdReducer,
+  editTourguideByGuideReducer,
 } from "../reducers/TourGuide";
 
 const finalReducers = combineReducers({
@@ -40,6 +41,7 @@ const finalReducers = combineReducers({
   deleteTourguideReducer: deleteTourguideReducer,
   editTourguideReducer: editTourguideReducer,
   findTourGuideByIdReducer: findTourGuideByIdReducer,
+  editTourguideByGuideReducer: editTourguideByGuideReducer,
 });
 
 const currentUser = localStorage.getItem("currentUser")
