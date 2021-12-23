@@ -19,6 +19,8 @@ import PeopleDetails from "./components/PeopleList/PeopleDetails";
 import AddTourGuide from "./pages/Admin/AddTourguide";
 import TourGuideList from "./pages/Admin/TourGuideList";
 import EditTourGuide from "./pages/Admin/EditTourGuide";
+import Addtourguide from "./pages/TourGuide/Addtourguide";
+import TourguidePrivateRoute from "./pages/PrivateRoute/TourguidePrivateRoute";
 
 function App() {
   return (
@@ -30,6 +32,10 @@ function App() {
             <Route path="/auth" component={Auth}></Route>
             <Route path="/:name/:id" component={Details}></Route>
             <Route path="/articles" component={Atricles}></Route>
+            <TourguidePrivateRoute
+              path="/addinfo"
+              component={Addtourguide}
+            ></TourguidePrivateRoute>
             <Route path="/khagrachari" component={Khagrachari}></Route>
             <Route path="/rangamati" component={Rangamati}></Route>
             <Route path="/bandarban" component={Bandarban}></Route>

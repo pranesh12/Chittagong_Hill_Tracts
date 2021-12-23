@@ -26,6 +26,9 @@ import {
   EDIT_TOUR_GUIDE_BYTOURGUIDE,
   EDIT_TOUR_GUIDE_BYTOURGUIDE_SUCCESS,
   EDIT_TOUR_GUIDE_BYTOURGUIDE__FAILED,
+  FIND_TOUR_GUIDEBY_EMAIL,
+  FIND_TOUR_GUIDEBY_EMAIL_SUCCESS,
+  FIND_TOUR_GUIDEBY_EMAIL_FAILED,
 } from "../../actionType/actionType";
 
 import axios from "axios";
@@ -102,6 +105,17 @@ export const findTourGuideById = (id) => async (dispatch) => {
     dispatch({ type: FIND_TOUR_GUIDEBY_ID_FAILED, payload: error });
   }
 };
+//findTourguide by email
+export const findTourGuideByEmail = () => async (dispatch, getState) => {
+  const email = getState().userReducer.currentUser.email;
+  dispatch({ type: FIND_TOUR_GUIDEBY_EMAIL });
+  try {
+    const res = await axios.get(url + `tourguideByEmail?email=${email}`);
+    dispatch({ type: FIND_TOUR_GUIDEBY_EMAIL_SUCCESS, payload: res.data });
+  } catch (error) {
+    dispatch({ type: FIND_TOUR_GUIDEBY_EMAIL_FAILED, payload: error });
+  }
+};
 
 //deleteTourguide
 export const deleteTourGuide = (id) => async (dispatch, getState) => {
@@ -134,19 +148,18 @@ export const editTourGuide = (id, newtourGuide) => async (dispatch, getState) =>
 };
 
 //editTour guide by Tourguide
-export const editTourGuideByGuide =
-  (id, updataedData) => async (dispatch, getState) => {
-    const email = getState().userReducer.currentUser.email;
-    dispatch({ type: EDIT_TOUR_GUIDE_BYTOURGUIDE });
+export const editTourGuideByGuide = (updataedData) => async (dispatch, getState) => {
+  const email = getState().userReducer.currentUser.email;
+  dispatch({ type: EDIT_TOUR_GUIDE_BYTOURGUIDE });
 
-    console.log(updataedData);
-    try {
-      const res = await axios.put(
-        url + `editTourGuide?email=${email}`,
-        updataedData
-      );
-      dispatch({ type: EDIT_TOUR_GUIDE_BYTOURGUIDE_SUCCESS, payload: res.data });
-    } catch (error) {
-      dispatch({ type: EDIT_TOUR_GUIDE_BYTOURGUIDE__FAILED, payload: error });
-    }
-  };
+  console.log(updataedData);
+  try {
+    const res = await axios.put(
+      url + `editTourguidebytourguide?email=${email}`,
+      updataedData
+    );
+    dispatch({ type: EDIT_TOUR_GUIDE_BYTOURGUIDE_SUCCESS, payload: res.data });
+  } catch (error) {
+    dispatch({ type: EDIT_TOUR_GUIDE_BYTOURGUIDE__FAILED, payload: error });
+  }
+};

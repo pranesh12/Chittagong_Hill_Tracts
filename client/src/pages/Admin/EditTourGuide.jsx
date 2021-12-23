@@ -43,8 +43,6 @@ const EditTourguide = () => {
     }
   }, [id, dispatch, foundedtourguide]);
 
-  console.log(foundedtourguide);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 

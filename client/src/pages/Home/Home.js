@@ -14,11 +14,12 @@ import englishLanguageData from "../../data/englishLanguageData";
 import chakmaLanguageData from "../../data/chakmaLanguageData";
 
 const Home = () => {
+  const dispatch = useDispatch();
   const articleData = useSelector((state) => state.articleReducer.fetchDAta);
   const currentLanguage = useSelector(
     (state) => state.languageReducer.changeToChakmaLange
   );
-  const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getArticleData());
     dispatch(changeLanguage(false));

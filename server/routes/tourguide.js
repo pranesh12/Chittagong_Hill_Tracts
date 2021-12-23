@@ -10,6 +10,7 @@ const {
   removeTourGuide,
   tourguideById,
   editTourguidebytourguide,
+  findtourguideByEmail,
 } = require("../controllers/tourguide");
 
 const router = express.Router();
@@ -23,5 +24,6 @@ router.put("/editTourGuide", editTourguide);
 router.put("/editTourguidebytourguide", editTourguidebytourguide);
 router.delete("/tourguide", removeTourGuide);
 router.get("/gettourguide", tourguideById);
+router.get("/tourguideByEmail", findtourguideByEmail);
 
 module.exports = router;

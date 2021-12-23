@@ -9,7 +9,8 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const currentUserState = useSelector((state) => state.userReducer.currentUser);
-  const { name } = currentUserState;
+  const { name, isGuide } = currentUserState;
+  console.log(currentUserState);
 
   return (
     <div className="">
@@ -121,17 +122,19 @@ const Navbar = () => {
                   </Link>
                 )}
               </li>
-              <li onClick={() => dispatch(logoutUser())} className="nav-item">
-                <Link className="nav-link">logout</Link>
-              </li>
+              {isGuide && (
+                <li>
+                  <Link to="/addinfo" className="nav-link active">
+                    EDIT INFO
+                  </Link>
+                </li>
+              )}
+              {name && (
+                <li onClick={() => dispatch(logoutUser())} className="nav-item">
+                  <Link className="nav-link">logout</Link>
+                </li>
+              )}
             </ul>
-            {/* <form className="d-flex">
-              <button className="btn btn-outline-success" type="submit">
-                <Link className="article_link" to="/articles">
-                  Articles
-                </Link>
-              </button>
-            </form> */}
           </div>
         </div>
       </nav>

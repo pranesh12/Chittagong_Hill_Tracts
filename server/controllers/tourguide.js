@@ -9,6 +9,7 @@ const allTourGuides = async (req, res) => {
     res.json(error);
   }
 };
+
 const tourGuideDetails = async (req, res) => {
   try {
   } catch (error) {}
@@ -41,8 +42,10 @@ const tourGuideByDistrict = async (req, res) => {
 
 //tour create
 const addTourGuide = async (req, res) => {
+  console.log("creating add tour");
   try {
-    const { district, place, name, phone_number, gmail, status } = req.body;
+    const { district, place, name, phone_number, gmail, status, img } = req.body;
+    console.log(img);
     const { email } = req.query;
     const isAdmin = await userModel.findOne({ email });
     if (isAdmin) {
@@ -54,15 +57,16 @@ const addTourGuide = async (req, res) => {
           phone_number,
           gmail,
           status,
-          img,
         },
       });
       res.status(200).send("guided added succssfully");
+      console.log("created");
     } else {
       res.status(404).send({ message: "You don't have access" });
     }
   } catch (error) {
     res.json(error);
+    console.log(error);
   }
 };
 
@@ -77,6 +81,7 @@ const tourguideById = async (req, res) => {
     res.json(error);
   }
 };
+
 //Tour Edit by admin
 const editTourguide = async (req, res) => {
   const { id, newtourGuide } = req.body;
@@ -90,7 +95,6 @@ const editTourguide = async (req, res) => {
         phone_number,
         gmail,
         status,
-        img,
       },
     };
     await tourGuideModel.findByIdAndUpdate(id, newData, { new: true });
@@ -102,10 +106,11 @@ const editTourguide = async (req, res) => {
 
 //edit tour guide by individual guide
 const editTourguidebytourguide = async (req, res) => {
-  const { id, newtourGuide } = req.body;
-  const { district, place, name, phone_number, gmail, status, img } = newtourGuide;
+  const { email } = req.query;
+  const { district, place, name, phone_number, gmail, status, img } = req.body;
+  const foundedGuide = await tourGuideModel.findOne({ "info.gmail": email });
   try {
-    const newData = {
+    const updatedData = {
       district,
       place,
       info: {
@@ -113,11 +118,23 @@ const editTourguidebytourguide = async (req, res) => {
         phone_number,
         gmail,
         status,
-        img,
       },
     };
-    await tourGuideModel.findByIdAndUpdate(id, newData, { new: true });
-    res.status(200).json({ message: "Tour guide updated successfull" });
+    await tourGuideModel.findOneAndUpdate(foundedGuide.info.gmail, updatedData, {
+      new: true,
+    });
+    res.status(200).json({ message: "Tour guide updated successfull by guide" });
+  } catch (error) {
+    console.log("error");
+  }
+};
+
+//find Tour guide by email
+const findtourguideByEmail = async (req, res) => {
+  try {
+    const { email } = req.query;
+    const foundedGuide = await tourGuideModel.findOne({ "info.gmail": email });
+    res.json(foundedGuide);
   } catch (error) {
     res.json(error);
   }
@@ -145,4 +162,5 @@ module.exports = {
   tourGuideByDistrict: tourGuideByDistrict,
   tourguideById: tourguideById,
   editTourguidebytourguide: editTourguidebytourguide,
+  findtourguideByEmail: findtourguideByEmail,
 };

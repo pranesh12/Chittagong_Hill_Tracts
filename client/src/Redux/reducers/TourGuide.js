@@ -26,6 +26,9 @@ import {
   EDIT_TOUR_GUIDE_BYTOURGUIDE,
   EDIT_TOUR_GUIDE_BYTOURGUIDE_SUCCESS,
   EDIT_TOUR_GUIDE_BYTOURGUIDE__FAILED,
+  FIND_TOUR_GUIDEBY_EMAIL,
+  FIND_TOUR_GUIDEBY_EMAIL_SUCCESS,
+  FIND_TOUR_GUIDEBY_EMAIL_FAILED,
 } from "../../actionType/actionType";
 
 //All Tours guide data
@@ -254,6 +257,34 @@ export const findTourGuideByIdReducer = (state = {}, action) => {
         tourguideData: action.payload,
       };
     case FIND_TOUR_GUIDEBY_ID_FAILED:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    default:
+      return {
+        ...state,
+      };
+  }
+};
+
+//find tourguide by email
+
+export const findTourGuideByEmailReducer = (state = {}, action) => {
+  switch (action.type) {
+    case FIND_TOUR_GUIDEBY_EMAIL:
+      return {
+        ...state,
+        loading: true,
+      };
+    case FIND_TOUR_GUIDEBY_EMAIL_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        tourguideData: action.payload,
+      };
+    case FIND_TOUR_GUIDEBY_EMAIL_FAILED:
       return {
         ...state,
         loading: false,

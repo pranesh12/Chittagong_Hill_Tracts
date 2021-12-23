@@ -19,10 +19,10 @@ const register = async (req, res) => {
         name: newUser.name,
         email: newUser.email,
         isAdmin: newUser.isAdmin,
+        isGuide: newUser.isGuide,
       };
       res.json(result);
     }
-    res.send({ meassage: "Already Have an account" });
   } catch (error) {
     res.send(error);
   }
@@ -50,7 +50,9 @@ const login = async (req, res) => {
 const userList = async (req, res) => {
   const { email } = req.query;
   try {
-    const isAdmin = await userModel.findOne({ email });
+    const user = await userModel.findOne({ email });
+    const isAdmin = user.isAdmin;
+    console.log(isAdmin);
     if (isAdmin) {
       const foundedUserlist = await userModel.find({}).select("email name");
       res.status(200).send(foundedUserlist);
