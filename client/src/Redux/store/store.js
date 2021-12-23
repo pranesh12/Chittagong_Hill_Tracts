@@ -25,6 +25,7 @@ import {
   findTourGuideByEmailReducer,
   editTourguideByGuideReducer,
 } from "../reducers/TourGuide";
+import { getAllCommentsReducer, removeCommentReducer } from "../reducers/comment";
 
 const finalReducers = combineReducers({
   articleReducer: articleReducer,
@@ -45,6 +46,8 @@ const finalReducers = combineReducers({
   findTourGuideByIdReducer: findTourGuideByIdReducer,
   editTourguideByGuideReducer: editTourguideByGuideReducer,
   findTourGuideByEmailReducer: findTourGuideByEmailReducer,
+  getAllCommentsReducer: getAllCommentsReducer,
+  removeCommentReducer: removeCommentReducer,
 });
 
 const currentUser = localStorage.getItem("currentUser")
