@@ -138,7 +138,6 @@ export const editTourGuide = (id, newtourGuide) => async (dispatch, getState) =>
     id,
     newtourGuide,
   };
-  console.log(updataedData);
   try {
     const res = await axios.put(url + `editTourGuide?email=${email}`, updataedData);
     dispatch({ type: EDIT_TOUR_GUIDE_SUCCESS, payload: res.data });
@@ -151,8 +150,6 @@ export const editTourGuide = (id, newtourGuide) => async (dispatch, getState) =>
 export const editTourGuideByGuide = (updataedData) => async (dispatch, getState) => {
   const email = getState().userReducer.currentUser.email;
   dispatch({ type: EDIT_TOUR_GUIDE_BYTOURGUIDE });
-
-  console.log(updataedData);
   try {
     const res = await axios.put(
       url + `editTourguidebytourguide?email=${email}`,

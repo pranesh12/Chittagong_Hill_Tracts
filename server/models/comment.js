@@ -8,11 +8,10 @@ const comentSchema = new Schema(
       require,
     },
     star: {
-      type: String,
+      type: Number,
       require,
     },
-
-    data: {},
+    user: {},
   },
   { timestamps: true }
 );
