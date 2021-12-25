@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const comentSchema = new Schema(
+const reviewSchema = new Schema(
   {
     comment: {
       type: String,
@@ -16,6 +16,6 @@ const comentSchema = new Schema(
   { timestamps: true }
 );
 
-const commentModel = mongoose.model("comments", comentSchema);
+const reviewModel = mongoose.model("reviews", reviewSchema);
 
-module.exports = commentModel;
+module.exports = reviewModel;

@@ -12,6 +12,7 @@ import SubArticle from "../../components/SubArticle/SubArticle";
 import { changeLanguage } from "../../Redux/actions/changingLanguage";
 import englishLanguageData from "../../data/englishLanguageData";
 import chakmaLanguageData from "../../data/chakmaLanguageData";
+import Comment from "../../components/Review/ShowReview";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const Home = () => {
           <Section props={chakmaLanguageData} />
           <About props={chakmaLanguageData} />
           <SubArticle data={articleData} />
+          <Comment />
           <Information props={chakmaLanguageData} />
           <Footer props={chakmaLanguageData} />
         </>
@@ -43,6 +45,7 @@ const Home = () => {
           <Section props={englishLanguageData} />
           <About props={englishLanguageData} />
           <SubArticle data={articleData} />
+          <Comment />
           <Information props={englishLanguageData} />
           <Footer props={englishLanguageData} />
         </>

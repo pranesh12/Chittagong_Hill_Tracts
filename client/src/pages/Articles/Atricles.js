@@ -14,8 +14,7 @@ const Atricles = () => {
     dispatch(getArticleData());
   }, [dispatch]);
 
-
-  console.log(courseState)
+  console.log(courseState);
 
   return (
     <>

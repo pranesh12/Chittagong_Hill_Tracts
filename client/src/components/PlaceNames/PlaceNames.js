@@ -12,12 +12,16 @@ const PlaceNames = ({ district }) => {
     dispatch(findTourguideByDistrictAndPlace(districtName, place));
   };
 
+  const newFilter = district?.filter(
+    (value, index, self) => index === self.findIndex((t) => t.place === value.place)
+  );
+
   return (
     <>
       <div className="container">
         <h1>{districtName}</h1>
         <ul className="list-group">
-          {district?.map((place) => {
+          {newFilter?.map((place) => {
             return (
               <Link to="/filterTourguidesList">
                 <li onClick={handlePlace} key={place.id} className="list-group-item">

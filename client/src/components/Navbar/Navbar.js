@@ -10,7 +10,6 @@ const Navbar = () => {
 
   const currentUserState = useSelector((state) => state.userReducer.currentUser);
   const { name, isGuide } = currentUserState;
-  console.log(currentUserState);
 
   return (
     <div className="">

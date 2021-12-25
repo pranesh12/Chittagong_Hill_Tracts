@@ -21,6 +21,7 @@ import TourGuideList from "./pages/Admin/TourGuideList";
 import EditTourGuide from "./pages/Admin/EditTourGuide";
 import Addtourguide from "./pages/TourGuide/Addtourguide";
 import TourguidePrivateRoute from "./pages/PrivateRoute/TourguidePrivateRoute";
+import Addreview from "./components/Review/Addreview";
 
 function App() {
   return (
@@ -36,11 +37,14 @@ function App() {
               path="/addinfo"
               component={Addtourguide}
             ></TourguidePrivateRoute>
+            <Route path="/review" component={Addreview}></Route>
+
             <Route path="/khagrachari" component={Khagrachari}></Route>
             <Route path="/rangamati" component={Rangamati}></Route>
             <Route path="/bandarban" component={Bandarban}></Route>
             <Route path="/filterTourguidesList" component={PeopleList}></Route>
             <Route path="/:guideId" component={PeopleDetails}></Route>
+
             <Route exact path="/" component={Home}></Route>
           </Switch>
         </Route>

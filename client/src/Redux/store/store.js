@@ -1,7 +1,6 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-
 import {
   articleReducer,
   teachersReducer,
@@ -10,6 +9,7 @@ import {
   addArticleReducer,
   deleteArticleReducer,
 } from "../reducers/article";
+
 import { userReducer } from "../reducers/user";
 import { languageReducer } from "../reducers/language";
 
@@ -25,7 +25,11 @@ import {
   findTourGuideByEmailReducer,
   editTourguideByGuideReducer,
 } from "../reducers/TourGuide";
-import { getAllCommentsReducer, removeCommentReducer } from "../reducers/comment";
+import {
+  getAllreviewReducer,
+  addReviewReducer,
+  removeReviewReducer,
+} from "../reducers/review";
 
 const finalReducers = combineReducers({
   articleReducer: articleReducer,
@@ -46,8 +50,9 @@ const finalReducers = combineReducers({
   findTourGuideByIdReducer: findTourGuideByIdReducer,
   editTourguideByGuideReducer: editTourguideByGuideReducer,
   findTourGuideByEmailReducer: findTourGuideByEmailReducer,
-  getAllCommentsReducer: getAllCommentsReducer,
-  removeCommentReducer: removeCommentReducer,
+  getAllreviewReducer: getAllreviewReducer,
+  addReviewReducer: addReviewReducer,
+  removeReviewReducer: removeReviewReducer,
 });
 
 const currentUser = localStorage.getItem("currentUser")

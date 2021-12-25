@@ -5,7 +5,7 @@ const app = express();
 const articleRouter = require("./routes/article");
 const userRouter = require("./routes/user");
 const tourGuideRouter = require("./routes/tourguide");
-const commentRouter = require("./routes/comments");
+const reviewRouter = require("./routes/review");
 const morgan = require("morgan");
 
 app.use(express.json({ limit: "50mb" }));
@@ -16,7 +16,7 @@ app.use(morgan("dev"));
 app.use("/", articleRouter);
 app.use("/", userRouter);
 app.use("/", tourGuideRouter);
-app.use("/", commentRouter);
+app.use("/", reviewRouter);
 
 mongoose.connect("mongodb://localhost:27017/hillTracts", {
   useNewUrlParser: true,
