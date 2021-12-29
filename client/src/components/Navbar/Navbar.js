@@ -8,7 +8,10 @@ import { changeLanguage } from "../../Redux/actions/changingLanguage";
 const Navbar = () => {
   const dispatch = useDispatch();
 
-  const currentUserState = useSelector((state) => state.userReducer.currentUser);
+  const currentUserState = useSelector(
+    (state) => state.loginUserReducer.currentUser
+  );
+
   const { name, isGuide } = currentUserState;
 
   return (

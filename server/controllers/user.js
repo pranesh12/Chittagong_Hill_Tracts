@@ -1,5 +1,8 @@
 const userModel = require("../models/user");
 const bcrypt = require("bcrypt");
+require("dotenv").config();
+const jwt = require("jsonwebtoken");
+const privateKey = process.env.PRIVATEKEY;
 
 const register = async (req, res) => {
   try {
@@ -15,11 +18,16 @@ const register = async (req, res) => {
         password: hashedPassword,
         isGuide: guide,
       });
+
+      const token = jwt.sign({ email: newUser.name, _id: newUser._id }, privateKey, {
+        expiresIn: "24h",
+      });
       const result = {
         name: newUser.name,
         email: newUser.email,
         isAdmin: newUser.isAdmin,
         isGuide: newUser.isGuide,
+        token,
       };
       res.json(result);
     }
@@ -35,12 +43,19 @@ const login = async (req, res) => {
     if (!oldUser) res.status(404).json({ meassage: "No user found" });
     const matchPassword = await bcrypt.compare(password, oldUser.password);
     if (!matchPassword) res.status(404).json("Passord incorrect");
+
+    const token = jwt.sign({ email: oldUser.name, _id: oldUser._id }, privateKey, {
+      expiresIn: "24h",
+    });
+
     const result = {
       name: oldUser.name,
       email: oldUser.email,
       isAdmin: oldUser.isAdmin,
       isGuide: oldUser.isGuide,
+      token,
     };
+    console.log(token);
     res.status(200).json(result);
   } catch (error) {
     res.send(error);

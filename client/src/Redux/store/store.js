@@ -10,7 +10,12 @@ import {
   deleteArticleReducer,
 } from "../reducers/article";
 
-import { userReducer } from "../reducers/user";
+import {
+  loginUserReducer,
+  registerUserReducer,
+  removeUserReducer,
+  getAllUserReducer,
+} from "../reducers/user";
 import { languageReducer } from "../reducers/language";
 
 import {
@@ -36,7 +41,11 @@ import {
 const finalReducers = combineReducers({
   articleReducer: articleReducer,
   teachersReducer: teachersReducer,
-  userReducer: userReducer,
+
+  loginUserReducer: loginUserReducer,
+  registerUserReducer: registerUserReducer,
+  removeUserReducer: removeUserReducer,
+  getAllUserReducer: getAllUserReducer,
   articleUpdateReducer: articleUpdateReducer,
   findArticleByIdReducer: findArticleByIdReducer,
   addArticleReducer: addArticleReducer,
@@ -63,7 +72,7 @@ const currentUser = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser"))
   : [];
 const initialReducer = {
-  userReducer: {
+  loginUserReducer: {
     currentUser: currentUser,
   },
 };
@@ -74,4 +83,5 @@ const store = createStore(
   initialReducer,
   composeEnhancers(applyMiddleware(thunk))
 );
+
 export default store;

@@ -75,7 +75,7 @@ export const findTourguideByDistrictAndPlace =
   };
 
 export const addTourGuide = (guideData) => async (dispatch, getState) => {
-  const email = getState().userReducer.currentUser.email;
+  const email = getState().loginUserReducer.currentUser.email;
   dispatch({ type: ADD_TOUR_GUIDE });
   try {
     const res = await axios.post(url + `addtourguide?email=${email}`, guideData);
@@ -107,7 +107,7 @@ export const findTourGuideById = (id) => async (dispatch) => {
 };
 //findTourguide by email
 export const findTourGuideByEmail = () => async (dispatch, getState) => {
-  const email = getState().userReducer.currentUser.email;
+  const email = getState().loginUserReducer.currentUser.email;
   dispatch({ type: FIND_TOUR_GUIDEBY_EMAIL });
   try {
     const res = await axios.get(url + `tourguideByEmail?email=${email}`);
@@ -119,7 +119,7 @@ export const findTourGuideByEmail = () => async (dispatch, getState) => {
 
 //deleteTourguide
 export const deleteTourGuide = (id) => async (dispatch, getState) => {
-  const email = getState().userReducer.currentUser.email;
+  const email = getState().loginUserReducer.currentUser.email;
   dispatch({ type: DELETE_TOUR_GUIDE });
   try {
     const res = await axios.delete(url + `tourguide?id=${id}&email=${email}`);
@@ -132,7 +132,7 @@ export const deleteTourGuide = (id) => async (dispatch, getState) => {
 //editTourguide by admin
 
 export const editTourGuide = (id, newtourGuide) => async (dispatch, getState) => {
-  const email = getState().userReducer.currentUser.email;
+  const email = getState().loginUserReducer.currentUser.email;
   dispatch({ type: EDIT_TOUR_GUIDE });
   const updataedData = {
     id,
@@ -148,7 +148,7 @@ export const editTourGuide = (id, newtourGuide) => async (dispatch, getState) =>
 
 //editTour guide by Tourguide
 export const editTourGuideByGuide = (updataedData) => async (dispatch, getState) => {
-  const email = getState().userReducer.currentUser.email;
+  const email = getState().loginUserReducer.currentUser.email;
   console.log("edit by tour happending");
   dispatch({ type: EDIT_TOUR_GUIDE_BYTOURGUIDE });
   try {

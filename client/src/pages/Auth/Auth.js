@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./auth.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { loginUser, registerUser } from "../../Redux/actions/userAction";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
 const Auth = () => {
   const dispatch = useDispatch();
+  const uesrInfo = useSelector((state) => state.loginUserReducer.currentUser);
+  console.log(uesrInfo);
   const [islogin, setIslogin] = useState(false);
   const [guide, setGuide] = useState(false);
   const [register, setRegister] = useState({

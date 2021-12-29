@@ -39,14 +39,14 @@ export const loginUser = (logindata) => async (dispatch) => {
     dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data });
 
     localStorage.setItem("currentUser", JSON.stringify(res.data));
-    window.location = "/";
+    // window.location = "/";
   } catch (error) {
     dispatch({ type: LOGIN_USER_FAILED, payload: error });
   }
 };
 
 export const getAllUserData = () => async (dispatch, getState) => {
-  const email = getState().userReducer.currentUser.email;
+  const email = getState().loginUserReducer.currentUser.email;
 
   dispatch({ type: GET_USER });
   try {
@@ -58,7 +58,7 @@ export const getAllUserData = () => async (dispatch, getState) => {
 };
 
 export const removeUserAccount = (id) => async (dispatch, getState) => {
-  const email = getState().userReducer.currentUser.email;
+  const email = getState().loginUserReducer.currentUser.email;
   dispatch({ type: DELETE_USER_ACCOUNT });
   try {
     const res = await axios.delete(url + `removeAccount?id=${id}&email=${email}`);

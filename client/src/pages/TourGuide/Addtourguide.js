@@ -15,7 +15,7 @@ const Addtourguide = () => {
     (state) => state.findTourGuideByEmailReducer.tourguideData
   );
 
-  const guideUser = useSelector((state) => state.userReducer.currentUser);
+  const guideUser = useSelector((state) => state.loginUserReducer.currentUser);
   const email = guideUser.email;
   const guideName = guideUser.name;
 

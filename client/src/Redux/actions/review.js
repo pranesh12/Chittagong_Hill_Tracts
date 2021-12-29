@@ -31,8 +31,8 @@ export const getAllReview = () => async (dispatch) => {
 
 //Adding new Review
 export const addReview = (reviewData) => async (dispatch, getState) => {
-  const email = getState().userReducer.currentUser.email;
-  const userName = getState().userReducer.currentUser.name;
+  const email = getState().loginUserReducer.currentUser.email;
+  const userName = getState().loginUserReducer.currentUser.name;
 
   dispatch({ type: ADD_REVIEW });
   try {
@@ -48,8 +48,8 @@ export const addReview = (reviewData) => async (dispatch, getState) => {
 
 //Updating review
 export const updateReview = (reviewData) => async (dispatch, getState) => {
-  const email = getState().userReducer.currentUser.email;
-  const userName = getState().userReducer.currentUser.name;
+  const email = getState().loginUserReducer.currentUser.email;
+  const userName = getState().loginUserReducer.currentUser.name;
 
   dispatch({ type: UPDATE_REVIEW });
   try {
@@ -65,7 +65,7 @@ export const updateReview = (reviewData) => async (dispatch, getState) => {
 
 //removoving review
 export const removeReview = () => async (dispatch, getState) => {
-  const email = getState().userReducer.currentUser.email;
+  const email = getState().loginUserReducer.currentUser.email;
   dispatch({ type: REMOVE_REVIEW });
   try {
     const res = await axios.delete(url + `review?email=${email}`);
@@ -78,7 +78,7 @@ export const removeReview = () => async (dispatch, getState) => {
 //find review by email
 
 export const findReviewbyMail = () => async (dispatch, getState) => {
-  const email = getState().userReducer.currentUser.email;
+  const email = getState().loginUserReducer.currentUser.email;
   dispatch({ type: GET_REVIEW_BYMAIL });
   try {
     const res = await axios.get(url + `review?email=${email}`);

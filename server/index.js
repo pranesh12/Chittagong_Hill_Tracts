@@ -2,11 +2,12 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
+const morgan = require("morgan");
+
 const articleRouter = require("./routes/article");
 const userRouter = require("./routes/user");
 const tourGuideRouter = require("./routes/tourguide");
 const reviewRouter = require("./routes/review");
-const morgan = require("morgan");
 
 app.use(express.json({ limit: "50mb" }));
 app.use(cors());

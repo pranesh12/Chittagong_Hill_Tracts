@@ -43,7 +43,7 @@ export const getTeachers = () => async (dispatch) => {
 };
 
 export const addArticleData = (data) => async (dispatch, getState) => {
-  const email = getState().userReducer.currentUser.email;
+  const email = getState().loginUserReducer.currentUser.email;
   dispatch({ type: Add_ARTICLE_DATA });
   try {
     const res = await axios.post(url + `article?email=${email}`, data);
@@ -55,7 +55,7 @@ export const addArticleData = (data) => async (dispatch, getState) => {
 };
 
 export const deletArticleData = (id) => async (dispatch, getState) => {
-  const email = getState().userReducer.currentUser.email;
+  const email = getState().loginUserReducer.currentUser.email;
   dispatch({ type: DELETE_ARTICLE_DATA });
   try {
     const res = await axios.delete(url + `article?id=${id}&email=${email}`);
@@ -77,7 +77,7 @@ export const findDataByid = (id) => async (dispatch) => {
 };
 
 export const updateArticle = (id, newData) => async (dispatch, getState) => {
-  const email = getState().userReducer.currentUser.email;
+  const email = getState().loginUserReducer.currentUser.email;
   dispatch({ type: UPDATE_ARTICLE_DATA });
   const updataedData = {
     id,
