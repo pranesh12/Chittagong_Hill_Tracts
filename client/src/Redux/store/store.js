@@ -30,6 +30,7 @@ import {
   findTourGuideByEmailReducer,
   editTourguideByGuideReducer,
 } from "../reducers/TourGuide";
+
 import {
   getAllreviewReducer,
   addReviewReducer,
@@ -41,7 +42,6 @@ import {
 const finalReducers = combineReducers({
   articleReducer: articleReducer,
   teachersReducer: teachersReducer,
-
   loginUserReducer: loginUserReducer,
   registerUserReducer: registerUserReducer,
   removeUserReducer: removeUserReducer,
@@ -68,9 +68,10 @@ const finalReducers = combineReducers({
   findReviewByMailReducer: findReviewByMailReducer,
 });
 
-const currentUser = localStorage.getItem("currentUser")
+export const currentUser = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser"))
   : [];
+
 const initialReducer = {
   loginUserReducer: {
     currentUser: currentUser,

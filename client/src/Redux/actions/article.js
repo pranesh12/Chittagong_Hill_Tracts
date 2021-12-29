@@ -21,11 +21,13 @@ import {
 } from "../../actionType/actionType";
 
 import { url } from "../../api/api";
+import { headers } from "../../util/token";
 
 export const getArticleData = () => async (dispatch) => {
   dispatch({ type: FETCH_ARTICLE_DATA });
+  console.log(headers);
   try {
-    const res = await axios.get(url + `article`);
+    const res = await axios.get(url + `article`, headers);
     dispatch({ type: FETCH_ARTICLE_DATA_SUCCESS, payload: res.data });
   } catch (error) {
     dispatch({ type: FETCH_ARTICLE_DATA_FAILED, payload: error });

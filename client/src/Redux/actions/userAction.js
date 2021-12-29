@@ -47,7 +47,6 @@ export const loginUser = (logindata) => async (dispatch) => {
 
 export const getAllUserData = () => async (dispatch, getState) => {
   const email = getState().loginUserReducer.currentUser.email;
-
   dispatch({ type: GET_USER });
   try {
     const res = await axios.get(url + `userList?email=${email}`);
