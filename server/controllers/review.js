@@ -8,12 +8,11 @@ const getAllReview = async (req, res) => {
     console.log(error);
   }
 };
-const addReview = async (req, res) => {
-  const { comment, currentValue } = req.body;
-  const { email, name } = req.query;
-  console.log(name, email);
 
+const addReview = async (req, res) => {
   try {
+    const { comment, currentValue } = req.body;
+    const { email, name } = req.query;
     await reviewModel.create({
       comment,
       star: currentValue,
@@ -30,18 +29,43 @@ const addReview = async (req, res) => {
 };
 
 const removeReview = async (req, res) => {
+  const { id } = req.params;
   try {
-    console.log("remove comment hitted");
+    await reviewModel.deleteOne({ _id: id });
+    res.json("review deleted succefully");
   } catch (error) {
     console.log(error);
   }
 };
 
-const editReview = (req, res) => {
+const updateReview = async (req, res) => {
   try {
+    const { comment, currentValue } = req.body;
+    const { email, name } = req.query;
+    const newReview = {
+      comment,
+      star: currentValue,
+      user: {
+        email,
+        name,
+      },
+    };
+    await reviewModel.findOneAndUpdate(email, newReview, { new: true });
     console.log("Edit comment hitted");
   } catch (error) {
     console.log(error);
+  }
+};
+//find reviw by email
+const findReviewByEmail = async (req, res) => {
+  try {
+    const { email } = req.query;
+    console.log(email);
+    const foundedReview = await reviewModel.findOne({ "user.email": email });
+    res.json(foundedReview);
+    console.log(foundedReview);
+  } catch (error) {
+    res.status(400).json(error);
   }
 };
 
@@ -49,5 +73,6 @@ module.exports = {
   getAllReview: getAllReview,
   addReview: addReview,
   removeReview: removeReview,
-  editReview: editReview,
+  updateReview: updateReview,
+  findReviewByEmail: findReviewByEmail,
 };

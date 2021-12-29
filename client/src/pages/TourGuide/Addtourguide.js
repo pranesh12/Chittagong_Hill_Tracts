@@ -15,8 +15,6 @@ const Addtourguide = () => {
     (state) => state.findTourGuideByEmailReducer.tourguideData
   );
 
-  console.log(foundedtourguide);
-
   const guideUser = useSelector((state) => state.userReducer.currentUser);
   const email = guideUser.email;
   const guideName = guideUser.name;
@@ -51,11 +49,9 @@ const Addtourguide = () => {
         });
       } else {
         dispatch(findTourGuideByEmail());
-        console.log("It's happening 1");
       }
     } else {
       dispatch(findTourGuideByEmail());
-      console.log("It's happening 2");
     }
   }, [dispatch, foundedtourguide, email]);
 

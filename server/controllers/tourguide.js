@@ -108,7 +108,9 @@ const editTourguide = async (req, res) => {
 const editTourguidebytourguide = async (req, res) => {
   const { email } = req.query;
   const { district, place, name, phone_number, gmail, status, img } = req.body;
-  const foundedGuide = await tourGuideModel.findOne({ "info.gmail": email });
+  console.log(req.body);
+  // const foundedGuide = await tourGuideModel.findOne({ "info.gmail": email });
+  // const foundedgmail = foundedGuide.info.gmail;
   try {
     const updatedData = {
       district,
@@ -120,9 +122,10 @@ const editTourguidebytourguide = async (req, res) => {
         status,
       },
     };
-    await tourGuideModel.findOneAndUpdate(foundedGuide.info.gmail, updatedData, {
+    await tourGuideModel.findOneAndUpdate(gmail, updatedData, {
       new: true,
     });
+    // console.log("update by guide successfull");
     res.status(200).json({ message: "Tour guide updated successfull by guide" });
   } catch (error) {
     console.log("error");

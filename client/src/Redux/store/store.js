@@ -29,6 +29,8 @@ import {
   getAllreviewReducer,
   addReviewReducer,
   removeReviewReducer,
+  updateReviewReducer,
+  findReviewByMailReducer,
 } from "../reducers/review";
 
 const finalReducers = combineReducers({
@@ -53,6 +55,8 @@ const finalReducers = combineReducers({
   getAllreviewReducer: getAllreviewReducer,
   addReviewReducer: addReviewReducer,
   removeReviewReducer: removeReviewReducer,
+  updateReviewReducer: updateReviewReducer,
+  findReviewByMailReducer: findReviewByMailReducer,
 });
 
 const currentUser = localStorage.getItem("currentUser")
