@@ -50,7 +50,7 @@ const updateReview = async (req, res) => {
         name,
       },
     };
-    await reviewModel.findOneAndUpdate(email, newReview, { new: true });
+    await reviewModel.findOneAndUpdate(email, newReview);
     console.log("Edit comment hitted");
   } catch (error) {
     console.log(error);
@@ -60,10 +60,8 @@ const updateReview = async (req, res) => {
 const findReviewByEmail = async (req, res) => {
   try {
     const { email } = req.query;
-    console.log(email);
     const foundedReview = await reviewModel.findOne({ "user.email": email });
     res.json(foundedReview);
-    console.log(foundedReview);
   } catch (error) {
     res.status(400).json(error);
   }

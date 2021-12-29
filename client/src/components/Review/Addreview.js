@@ -1,15 +1,39 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { FaStar } from "react-icons/fa";
-import { useDispatch } from "react-redux";
-import { addReview } from "../../Redux/actions/review";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  addReview,
+  findReviewbyMail,
+  updateReview,
+} from "../../Redux/actions/review";
 import Navbar from "../Navbar/Navbar";
 
 const Addreview = () => {
   const dispatch = useDispatch();
+  const foundedReview = useSelector(
+    (state) => state.findReviewByMailReducer.fetchData
+  );
+  const email = useSelector((state) => state.userReducer.currentUser.email);
+
   const [comment, setComment] = useState();
   const [currentValue, setCurrentValue] = useState();
+
   const [hoverValue, setHoverValue] = useState(undefined);
   const stars = Array(5).fill(0);
+
+  useEffect(() => {
+    if (foundedReview) {
+      if (email === foundedReview?.user.email) {
+        setCurrentValue(foundedReview?.star);
+        setComment(foundedReview?.comment);
+      } else {
+        dispatch(findReviewbyMail());
+      }
+    } else {
+      dispatch(findReviewbyMail());
+    }
+  }, [dispatch, email, foundedReview]);
 
   const handleClick = (value) => {
     setCurrentValue(value);
@@ -29,7 +53,9 @@ const Addreview = () => {
       currentValue,
     };
 
-    dispatch(addReview(reviewData));
+    foundedReview
+      ? dispatch(updateReview(reviewData))
+      : dispatch(addReview(reviewData));
   };
 
   return (
