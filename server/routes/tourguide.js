@@ -13,17 +13,16 @@ const {
 } = require("../controllers/tourguide");
 
 const router = express.Router();
-
+router.get("/tourguides", allTourGuides);
 router.get("/tourguide", tourguideById);
 router.post("/tourguide", addTourGuideByAdmin);
 router.put("/tourguide", editTourguideByAdmin);
 router.delete("/tourguide", removeTourGuideByAdmin);
 
-router.get("/tourguideByEmail", findtourguideByEmail);
-router.get("/tourguideByDistrict", tourGuidesByDistrict);
-router.get("/tourguideByPlaceAndDistrict", findTourguideByDistrictAndPlace);
+router.get("/tourguide/mail", findtourguideByEmail);
+router.get("/tourguide/district", tourGuidesByDistrict);
+router.get("/tourguide/district&place", findTourguideByDistrictAndPlace);
 
-router.get("/tourguides", allTourGuides);
 router.put("/editTourguidebytourguide", editTourguidebytourguide);
 
 module.exports = router;

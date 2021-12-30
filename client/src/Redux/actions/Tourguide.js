@@ -83,7 +83,7 @@ export const deleteTourGuide = (id) => async (dispatch, getState) => {
 export const getPlaceByDistrict = (district) => async (dispatch) => {
   dispatch({ type: GET_PLACE_BY_DISTRICT });
   try {
-    const res = await axios.get(url + `tourguideByDistrict?district=${district}`);
+    const res = await axios.get(url + `tourguide/district?district=${district}`);
     dispatch({ type: GET_PLACE_BY_DISTRICT_SUCCESS, payload: res });
   } catch (error) {
     dispatch({ type: GET_PLACE_BY_DISTRICT_FAILED, payload: error });
@@ -96,7 +96,7 @@ export const findTourguideByDistrictAndPlace =
 
     try {
       const res = await axios.get(
-        url + `tourguideByPlaceAndDistrict?district=${district}&place=${place}`
+        url + `tourguide/district&place?district=${district}&place=${place}`
       );
       dispatch({
         type: FIND_TOURGUIDES_BY_PLACE_AND_DISTRICT_SUCCESS,
@@ -125,7 +125,7 @@ export const findTourGuideByEmail = () => async (dispatch, getState) => {
   const email = getState().loginUserReducer.currentUser.email;
   dispatch({ type: FIND_TOUR_GUIDEBY_EMAIL });
   try {
-    const res = await axios.get(url + `tourguide?email=${email}`);
+    const res = await axios.get(url + `tourguide/mail?email=${email}`);
     dispatch({ type: FIND_TOUR_GUIDEBY_EMAIL_SUCCESS, payload: res.data });
   } catch (error) {
     dispatch({ type: FIND_TOUR_GUIDEBY_EMAIL_FAILED, payload: error });

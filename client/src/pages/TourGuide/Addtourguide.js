@@ -30,10 +30,9 @@ const Addtourguide = () => {
   });
 
   const handleSubmit = () => {
-    // foundedtourguide
-    //   ? dispatch(editTourGuideByGuide(tourGuideData))
-    //   : dispatch(addTourGuide(tourGuideData));
-    dispatch(editTourGuideByGuide(tourGuideData));
+    foundedtourguide
+      ? dispatch(editTourGuideByGuide(tourGuideData))
+      : dispatch(addTourGuide(tourGuideData));
   };
 
   useEffect(() => {
