@@ -10,16 +10,7 @@ const allTourGuides = async (req, res) => {
   }
 };
 
-const tourGuideDetails = async (req, res) => {
-  try {
-  } catch (error) {}
-};
-const createTrourGuide = async (req, res) => {
-  try {
-  } catch {}
-};
-
-const tourGuidesByPalce = async (req, res) => {
+const findTourguideByDistrictAndPlace = async (req, res) => {
   try {
     const { district, place } = req.query;
     const guides = await tourGuideModel.find({ district, place });
@@ -30,7 +21,7 @@ const tourGuidesByPalce = async (req, res) => {
 };
 
 //TourGuides by district
-const tourGuideByDistrict = async (req, res) => {
+const tourGuidesByDistrict = async (req, res) => {
   try {
     const { district } = req.query;
     const guides = await tourGuideModel.find({ district });
@@ -41,7 +32,7 @@ const tourGuideByDistrict = async (req, res) => {
 };
 
 //tour create
-const addTourGuide = async (req, res) => {
+const addTourGuideByAdmin = async (req, res) => {
   console.log("creating add tour");
   try {
     const { district, place, name, phone_number, gmail, status, img } = req.body;
@@ -60,7 +51,7 @@ const addTourGuide = async (req, res) => {
         },
       });
       res.status(200).send("guided added succssfully");
-      console.log("created");
+      console.log("created by tourguide");
     } else {
       res.status(404).send({ message: "You don't have access" });
     }
@@ -75,6 +66,7 @@ const addTourGuide = async (req, res) => {
 const tourguideById = async (req, res) => {
   try {
     const { id } = req.query;
+    console.log("tour guide by id");
     const foundedGuide = await tourGuideModel.findOne({ _id: id });
     res.json(foundedGuide);
   } catch (error) {
@@ -83,7 +75,7 @@ const tourguideById = async (req, res) => {
 };
 
 //Tour Edit by admin
-const editTourguide = async (req, res) => {
+const editTourguideByAdmin = async (req, res) => {
   const { id, newtourGuide } = req.body;
   const { district, place, name, phone_number, gmail, status, img } = newtourGuide;
   try {
@@ -135,6 +127,7 @@ const editTourguidebytourguide = async (req, res) => {
 //find Tour guide by email
 const findtourguideByEmail = async (req, res) => {
   try {
+    console.log("findBy email running");
     const { email } = req.query;
     const foundedGuide = await tourGuideModel.findOne({ "info.gmail": email });
     res.json(foundedGuide);
@@ -144,7 +137,7 @@ const findtourguideByEmail = async (req, res) => {
 };
 
 //romve tour guide
-const removeTourGuide = async (req, res) => {
+const removeTourGuideByAdmin = async (req, res) => {
   try {
     const { id } = req.query;
     await tourGuideModel.deleteOne({ _id: id });
@@ -156,13 +149,11 @@ const removeTourGuide = async (req, res) => {
 
 module.exports = {
   allTourGuides: allTourGuides,
-  tourGuideDetails: tourGuideDetails,
-  createTrourGuide: createTrourGuide,
-  tourGuidesByPalce: tourGuidesByPalce,
-  addTourGuide: addTourGuide,
-  editTourguide: editTourguide,
-  removeTourGuide: removeTourGuide,
-  tourGuideByDistrict: tourGuideByDistrict,
+  findTourguideByDistrictAndPlace: findTourguideByDistrictAndPlace,
+  addTourGuideByAdmin: addTourGuideByAdmin,
+  editTourguideByAdmin: editTourguideByAdmin,
+  removeTourGuideByAdmin: removeTourGuideByAdmin,
+  tourGuidesByDistrict: tourGuidesByDistrict,
   tourguideById: tourguideById,
   editTourguidebytourguide: editTourguidebytourguide,
   findtourguideByEmail: findtourguideByEmail,

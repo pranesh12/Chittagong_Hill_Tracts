@@ -2,12 +2,11 @@ const express = require("express");
 
 const {
   allTourGuides,
-  tourGuideDetails,
-  editTourguide,
-  addTourGuide,
-  tourGuidesByPalce,
-  tourGuideByDistrict,
-  removeTourGuide,
+  editTourguideByAdmin,
+  addTourGuideByAdmin,
+  findTourguideByDistrictAndPlace,
+  tourGuidesByDistrict,
+  removeTourGuideByAdmin,
   tourguideById,
   editTourguidebytourguide,
   findtourguideByEmail,
@@ -15,15 +14,16 @@ const {
 
 const router = express.Router();
 
-router.get("/tourguide", tourGuideDetails);
-router.get("/tourguides", allTourGuides);
-router.get("/getPlaces", tourGuideByDistrict);
-router.get("/tourGuidesByPlace", tourGuidesByPalce);
-router.post("/addtourguide", addTourGuide);
-router.put("/editTourGuide", editTourguide);
-router.put("/editTourguidebytourguide", editTourguidebytourguide);
-router.delete("/tourguide", removeTourGuide);
-router.get("/gettourguide", tourguideById);
+router.get("/tourguide", tourguideById);
+router.post("/tourguide", addTourGuideByAdmin);
+router.put("/tourguide", editTourguideByAdmin);
+router.delete("/tourguide", removeTourGuideByAdmin);
+
 router.get("/tourguideByEmail", findtourguideByEmail);
+router.get("/tourguideByDistrict", tourGuidesByDistrict);
+router.get("/tourguideByPlaceAndDistrict", findTourguideByDistrictAndPlace);
+
+router.get("/tourguides", allTourGuides);
+router.put("/editTourguidebytourguide", editTourguidebytourguide);
 
 module.exports = router;

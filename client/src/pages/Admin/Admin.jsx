@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Dashboard from "./DashBoard/DashBoard";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { deletArticleData, getArticleData } from "../../Redux/actions/article";
+import { deleteArticle, getArticleData } from "../../Redux/actions/article";
 
 const Admin = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const Admin = () => {
   }, [dispatch]);
 
   const deleteData = (id) => {
-    dispatch(deletArticleData(id));
+    dispatch(deleteArticle(id));
   };
 
   return (

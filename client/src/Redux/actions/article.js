@@ -3,9 +3,6 @@ import {
   FETCH_ARTICLE_DATA,
   FETCH_ARTICLE_DATA_SUCCESS,
   FETCH_ARTICLE_DATA_FAILED,
-  FETCH_ALL_TEACHERS,
-  FETCH_ALL_TEACHERS_SUCCESS,
-  FETCH_ALL_TEACHERS_FAILED,
   Add_ARTICLE_DATA,
   Add_ARTICLE_DATA_SUCCESS,
   Add_ARTICLE_DATA_FAILED,
@@ -27,20 +24,10 @@ export const getArticleData = () => async (dispatch) => {
   dispatch({ type: FETCH_ARTICLE_DATA });
   console.log(headers);
   try {
-    const res = await axios.get(url + `article`, headers);
+    const res = await axios.get(url + `articles`, headers);
     dispatch({ type: FETCH_ARTICLE_DATA_SUCCESS, payload: res.data });
   } catch (error) {
     dispatch({ type: FETCH_ARTICLE_DATA_FAILED, payload: error });
-  }
-};
-
-export const getTeachers = () => async (dispatch) => {
-  dispatch({ type: FETCH_ALL_TEACHERS });
-  try {
-    const res = await axios.get(url + `teachers`);
-    dispatch({ type: FETCH_ALL_TEACHERS_SUCCESS, payload: res.data });
-  } catch (error) {
-    dispatch({ type: FETCH_ALL_TEACHERS_FAILED });
   }
 };
 
@@ -56,7 +43,7 @@ export const addArticleData = (data) => async (dispatch, getState) => {
   }
 };
 
-export const deletArticleData = (id) => async (dispatch, getState) => {
+export const deleteArticle = (id) => async (dispatch, getState) => {
   const email = getState().loginUserReducer.currentUser.email;
   dispatch({ type: DELETE_ARTICLE_DATA });
   try {
@@ -68,10 +55,10 @@ export const deletArticleData = (id) => async (dispatch, getState) => {
   }
 };
 
-export const findDataByid = (id) => async (dispatch) => {
+export const findArticleById = (id) => async (dispatch) => {
   dispatch({ type: FIND_DATA_BYID });
   try {
-    const res = await axios.get(url + `getArticle?id=${id}`);
+    const res = await axios.get(url + `article?id=${id}`);
     dispatch({ type: FIND_DATA_BYID_SUCCESS, payload: res.data });
   } catch (error) {
     dispatch({ type: FIND_DATA_BYID_FAILED, payload: error });

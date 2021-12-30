@@ -14,7 +14,7 @@ const Addtourguide = () => {
   const foundedtourguide = useSelector(
     (state) => state.findTourGuideByEmailReducer.tourguideData
   );
-
+  console.log(foundedtourguide);
   const guideUser = useSelector((state) => state.loginUserReducer.currentUser);
   const email = guideUser.email;
   const guideName = guideUser.name;
@@ -30,9 +30,10 @@ const Addtourguide = () => {
   });
 
   const handleSubmit = () => {
-    foundedtourguide
-      ? dispatch(editTourGuideByGuide(tourGuideData))
-      : dispatch(addTourGuide(tourGuideData));
+    // foundedtourguide
+    //   ? dispatch(editTourGuideByGuide(tourGuideData))
+    //   : dispatch(addTourGuide(tourGuideData));
+    dispatch(editTourGuideByGuide(tourGuideData));
   };
 
   useEffect(() => {

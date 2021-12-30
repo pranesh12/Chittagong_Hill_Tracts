@@ -37,7 +37,7 @@ const removeArticle = async (req, res) => {
   }
 };
 
-const getArticle = async (req, res) => {
+const getArticleById = async (req, res) => {
   try {
     const { id } = req.query;
     const foundArticle = await articleModel.findOne({ _id: id });
@@ -71,6 +71,6 @@ module.exports = {
   getAllInfo: getAllInfo,
   addArticles: addArticles,
   removeArticle: removeArticle,
-  getArticle: getArticle,
+  getArticleById: getArticleById,
   updateArticle: updateArticle,
 };

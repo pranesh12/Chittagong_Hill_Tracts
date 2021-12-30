@@ -3,16 +3,17 @@ const {
   getAllInfo,
   addArticles,
   removeArticle,
-  getArticle,
+  getArticleById,
   updateArticle,
 } = require("../controllers/article");
+const auth = require("../middleware/authChecker");
 
 const router = express.Router();
 
-router.get("/article", getAllInfo);
-router.get("/getArticle", getArticle);
+router.get("/articles", getAllInfo);
 router.post("/article", addArticles);
 router.put("/article", updateArticle);
 router.delete("/article", removeArticle);
+router.get("/article", getArticleById);
 
 module.exports = router;

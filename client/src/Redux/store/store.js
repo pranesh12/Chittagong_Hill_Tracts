@@ -20,7 +20,6 @@ import { languageReducer } from "../reducers/language";
 
 import {
   getAllTourGuideReducer,
-  tourGuideDetailReducer,
   findGuidesByDistrictAndPlaceReducer,
   addTourGuideReducer,
   getPlaceReducer,
@@ -52,7 +51,6 @@ const finalReducers = combineReducers({
   deleteArticleReducer: deleteArticleReducer,
   languageReducer: languageReducer,
   getAllTourGuideReducer: getAllTourGuideReducer,
-  tourGuideDetailReducer: tourGuideDetailReducer,
   addTourGuideReducer: addTourGuideReducer,
   findGuidesByDistrictAndPlaceReducer: findGuidesByDistrictAndPlaceReducer,
   getPlaceReducer: getPlaceReducer,

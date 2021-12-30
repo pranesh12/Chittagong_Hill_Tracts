@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Dashboard from "./DashBoard/DashBoard";
 import { useDispatch, useSelector } from "react-redux";
 import FileBase64 from "react-file-base64";
-import { findDataByid, updateArticle } from "../../Redux/actions/article";
+import { findArticleById, updateArticle } from "../../Redux/actions/article";
 
 const ArticleUpdate = () => {
   const dispatch = useDispatch();
@@ -31,10 +31,10 @@ const ArticleUpdate = () => {
           img: foundedData?.data.image,
         });
       } else {
-        dispatch(findDataByid(id));
+        dispatch(findArticleById(id));
       }
     } else {
-      dispatch(findDataByid(id));
+      dispatch(findArticleById(id));
     }
   }, [id, dispatch, foundedData]);
 
