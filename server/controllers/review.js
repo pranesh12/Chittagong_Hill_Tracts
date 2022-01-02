@@ -41,16 +41,17 @@ const removeReview = async (req, res) => {
 const updateReview = async (req, res) => {
   try {
     const { comment, currentValue } = req.body;
+    console.log(req.body);
     const { email, name } = req.query;
     const newReview = {
-      comment,
+      comment: comment,
       star: currentValue,
       user: {
         email,
         name,
       },
     };
-    await reviewModel.findOneAndUpdate(email, newReview);
+    await reviewModel.findOneAndUpdate("user.email", newReview);
     console.log("Edit comment hitted");
   } catch (error) {
     console.log(error);

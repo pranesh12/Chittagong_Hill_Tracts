@@ -14,6 +14,9 @@ const Addreview = () => {
   const foundedReview = useSelector(
     (state) => state.findReviewByMailReducer.fetchData
   );
+
+  console.log(foundedReview);
+
   const email = useSelector((state) => state.loginUserReducer.currentUser.email);
 
   const [comment, setComment] = useState();
@@ -62,7 +65,7 @@ const Addreview = () => {
     <>
       <Navbar />
       <div style={styles.container}>
-        <h2> React Ratings </h2>
+        <h2> Rate this Website </h2>
         <div style={styles.stars}>
           {stars.map((_, index) => {
             return (

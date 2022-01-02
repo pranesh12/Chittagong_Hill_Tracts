@@ -18,7 +18,7 @@ const Banner = ({ props }) => {
               <p className="banner_paragraph">{paragraph}</p>
             </div>
             <div>
-              <Link className="discover" to="/articles">
+              <Link className="Rating" to="/review">
                 <h5>{btn}</h5>
               </Link>
             </div>

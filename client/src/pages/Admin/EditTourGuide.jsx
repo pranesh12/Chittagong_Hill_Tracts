@@ -17,7 +17,7 @@ const EditTourguide = () => {
     district: "khagrachari",
     place: "",
     name: "",
-    gmail: "",
+    email: "",
     status: "avilable",
     img: "",
     phone_number: "",
@@ -30,7 +30,7 @@ const EditTourguide = () => {
           district: foundedtourguide?.district,
           place: foundedtourguide?.place,
           name: foundedtourguide?.info?.name,
-          gmail: foundedtourguide?.info?.gmail,
+          email: foundedtourguide?.info?.email,
           img: foundedtourguide?.info?.img,
           phone_number: foundedtourguide?.info?.phone_number,
           status: foundedtourguide?.info?.status,
@@ -125,9 +125,9 @@ const EditTourguide = () => {
               <input
                 className="form-control"
                 type="email"
-                name="gmail"
-                placeholder="Gmail"
-                value={tourGuideData.gmail}
+                name="email"
+                placeholder="Email"
+                value={tourGuideData.email}
                 onChange={handleChange}
               />
             </div>

@@ -47,7 +47,7 @@ const TourGuideList = () => {
                       <td>{ed.district}</td>
                       <td>{ed.place}</td>
                       <td>{ed.info?.phone_number}</td>
-                      <td>{ed.info?.gmail}</td>
+                      <td>{ed.info?.email}</td>
                       <td>
                         <div className="d-flex justify-content-around">
                           <div>

@@ -1,5 +1,7 @@
 const tourGuideModel = require("../models/tourguide");
 const userModel = require("../models/user");
+const moment = require("moment");
+const dateFormat = moment().format("l");
 
 const allTourGuides = async (req, res) => {
   try {
@@ -35,8 +37,8 @@ const tourGuidesByDistrict = async (req, res) => {
 const addTourGuideByAdmin = async (req, res) => {
   console.log("creating add tour");
   try {
-    const { district, place, name, phone_number, gmail, status, img } = req.body;
-    console.log(img);
+    const { district, place, name, phone_number, status, img } = req.body;
+
     const { email } = req.query;
     const isAdmin = await userModel.findOne({ email });
     if (isAdmin) {
@@ -46,8 +48,10 @@ const addTourGuideByAdmin = async (req, res) => {
         info: {
           name,
           phone_number,
-          gmail,
+          email,
+          img,
           status,
+          dateFormat,
         },
       });
       res.status(200).send("guided added succssfully");
@@ -78,6 +82,7 @@ const tourguideById = async (req, res) => {
 const editTourguideByAdmin = async (req, res) => {
   const { id, newtourGuide } = req.body;
   const { district, place, name, phone_number, gmail, status, img } = newtourGuide;
+  console.log(img);
   try {
     const newData = {
       district,
@@ -85,8 +90,10 @@ const editTourguideByAdmin = async (req, res) => {
       info: {
         name,
         phone_number,
-        gmail,
+        email,
+        img,
         status,
+        dateFormat,
       },
     };
     await tourGuideModel.findByIdAndUpdate(id, newData, { new: true });
@@ -110,8 +117,10 @@ const editTourguidebytourguide = async (req, res) => {
       info: {
         name,
         phone_number,
-        gmail,
+        email,
+        img,
         status,
+        dateFormat,
       },
     };
     await tourGuideModel.findOneAndUpdate(gmail, updatedData, {
@@ -129,7 +138,7 @@ const findtourguideByEmail = async (req, res) => {
   try {
     console.log("findBy email running");
     const { email } = req.query;
-    const foundedGuide = await tourGuideModel.findOne({ "info.gmail": email });
+    const foundedGuide = await tourGuideModel.findOne({ "info.email": email });
     res.json(foundedGuide);
   } catch (error) {
     res.json(error);

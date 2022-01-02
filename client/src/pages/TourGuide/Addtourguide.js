@@ -23,7 +23,7 @@ const Addtourguide = () => {
     district: "khagrachari",
     place: "",
     name: guideName,
-    gmail: email,
+    email: email,
     status: "avilable",
     img: "",
     phone_number: "",
@@ -37,12 +37,12 @@ const Addtourguide = () => {
 
   useEffect(() => {
     if (foundedtourguide) {
-      if (email === foundedtourguide.info.gmail) {
+      if (email === foundedtourguide.info.email) {
         setTourGuideData({
           district: foundedtourguide?.district,
           place: foundedtourguide?.place,
           name: foundedtourguide?.info?.name,
-          gmail: foundedtourguide?.info?.gmail,
+          email: foundedtourguide?.info?.email,
           img: foundedtourguide?.info?.img,
           phone_number: foundedtourguide?.info?.phone_number,
           status: foundedtourguide?.info?.status,
@@ -132,10 +132,10 @@ const Addtourguide = () => {
                 <input
                   className="form-control"
                   type="email"
-                  name="gmail"
-                  placeholder="Gmail"
+                  name="email"
+                  placeholder="Email"
                   disabled
-                  value={tourGuideData.gmail}
+                  value={tourGuideData.email}
                   onChange={handleChange}
                 />
               </div>

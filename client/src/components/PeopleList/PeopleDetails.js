@@ -17,7 +17,7 @@ const PeopleDetails = () => {
         return (
           <>
             <p>{guide.info.name}</p>
-            <p>{guide.info.gmail}</p>
+            <p>{guide.info.email}</p>
             <p>{guide.info.phone_number}</p>
             <p>{guide.info.status}</p>
           </>
