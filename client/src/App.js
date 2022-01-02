@@ -22,36 +22,61 @@ import EditTourGuide from "./pages/Admin/EditTourGuide";
 import Addtourguide from "./pages/TourGuide/Addtourguide";
 import TourguidePrivateRoute from "./pages/PrivateRoute/TourguidePrivateRoute";
 import Addreview from "./components/Review/Addreview";
+import MainLayout from "./components/ClientLayout/MainLayout";
 
 function App() {
   return (
     <>
       <Router>
-        <Route path={["/articles", "/auth", "/:name/:id", "/"]}>
-          {/* <Navbar /> */}
+        <Route
+          exact
+          path={[
+            "/articles",
+            "/auth",
+            "/:name/:id",
+            "/addinfo",
+            "/review",
+            "/khagrachari",
+            "/rangamati",
+            "/bandarban",
+            "/filterTourguidesList",
+            "/:guideId",
+            "/",
+          ]}
+        >
           <Switch>
-            <Route path="/auth" component={Auth}></Route>
-            <Route path="/:name/:id" component={Details}></Route>
-            <Route path="/articles" component={Atricles}></Route>
+            <Route exact path="/auth" component={Auth}></Route>
+            <Route exact path="/:name/:id" component={Details}></Route>
+            <Route exact path="/articles" component={Atricles}></Route>
             <TourguidePrivateRoute
               path="/addinfo"
               component={Addtourguide}
             ></TourguidePrivateRoute>
-            <Route path="/review" component={Addreview}></Route>
-
-            <Route path="/khagrachari" component={Khagrachari}></Route>
-            <Route path="/rangamati" component={Rangamati}></Route>
-            <Route path="/bandarban" component={Bandarban}></Route>
+            <Route exact path="/review" component={Addreview}></Route>
+            <Route exact path="/khagrachari" component={Khagrachari}></Route>
+            <Route exact path="/rangamati" component={Rangamati}></Route>
+            <Route exact path="/bandarban" component={Bandarban}></Route>
             <Route path="/filterTourguidesList" component={PeopleList}></Route>
-            <Route path="/:guideId" component={PeopleDetails}></Route>
-
+            <Route exact path="/:guideId" component={PeopleDetails}></Route>
             <Route exact path="/" component={Home}></Route>
           </Switch>
         </Route>
       </Router>
 
       <Router>
-        <Route>
+        <Route
+          exact
+          path={[
+            "/admin",
+            "/admin/addcourse",
+            "/admin/addteacher",
+            "/admin/addtourguide",
+            "/admin/tourguidelist",
+            "/admin/edit/:id",
+            "/admin/tourguide/:id",
+            "/admin/UserList",
+          ]}
+        >
           <Switch>
             <AdminPrivateRoute exact path="/admin">
               <Admin />

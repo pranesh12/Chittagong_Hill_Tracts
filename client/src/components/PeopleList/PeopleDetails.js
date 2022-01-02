@@ -13,8 +13,6 @@ const PeopleDetails = () => {
   console.log(filterData);
   return (
     <>
-      <Navbar />
-
       {filterData?.map((guide) => {
         return (
           <>
