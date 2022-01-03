@@ -25,7 +25,7 @@ export const registerUser = (registerData, guide) => async (dispatch) => {
     const res = await axios.post(url + `register`, combinedata);
     dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data });
     localStorage.setItem("currentUser", JSON.stringify(res.data));
-    window.location = "/";
+    // window.location = "/";
   } catch (error) {
     dispatch({ type: REGISTER_USER_FAILED, payload: error });
   }
@@ -35,11 +35,9 @@ export const loginUser = (logindata) => async (dispatch) => {
   dispatch({ type: LOGIN_USER });
   try {
     const res = await axios.post(url + `login`, logindata);
-    console.log(res.data);
     dispatch({ type: LOGIN_USER_SUCCESS, payload: res.data });
 
     localStorage.setItem("currentUser", JSON.stringify(res.data));
-    // window.location = "/";
   } catch (error) {
     dispatch({ type: LOGIN_USER_FAILED, payload: error });
   }
@@ -68,7 +66,7 @@ export const removeUserAccount = (id) => async (dispatch, getState) => {
   }
 };
 
-export const logoutUser = () => (dispatch, getState) => {
+export const logoutUser = () => () => {
   localStorage.removeItem("currentUser");
   window.location = "/";
 };

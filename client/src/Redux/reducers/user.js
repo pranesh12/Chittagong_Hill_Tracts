@@ -25,12 +25,13 @@ export const loginUserReducer = (state, action) => {
         ...state,
         loginLoading: false,
         currentUser: action.payload,
+        loginSuccess: true,
       };
     case LOGIN_USER_FAILED:
       return {
         ...state,
         loginLoading: false,
-        error: action.payload,
+        loginError: action.payload,
       };
     default:
       return {
@@ -51,11 +52,12 @@ export const registerUserReducer = (state, action) => {
         ...state,
         currentUser: action.payload,
         registerLoading: false,
+        registerSuccess: true,
       };
     case REGISTER_USER_FAILED:
       return {
         ...state,
-        error: action.payload,
+        Registererror: action.payload,
         registerLoading: false,
       };
     default:

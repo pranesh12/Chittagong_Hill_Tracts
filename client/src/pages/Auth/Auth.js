@@ -4,10 +4,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser, registerUser } from "../../Redux/actions/userAction";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
+import Loading from "../../components/Loaders/Loading";
+import Error from "../../components/Loaders/Error";
+import Success from "../../components/Loaders/Success";
 
 const Auth = () => {
   const dispatch = useDispatch();
   const uesrInfo = useSelector((state) => state.loginUserReducer.currentUser);
+  const registerUserState = useSelector((state) => state.registerUserReducer);
+  const loginUserState = useSelector((state) => state.loginUserReducer);
+  //Errors from register and loginState
+  const { registerLoading, registerSuccess, Registererror } = registerUserState;
+  const { loginLoading, loginSuccess, loginError } = loginUserState;
+
   console.log(uesrInfo);
   const [islogin, setIslogin] = useState(false);
   const [guide, setGuide] = useState(false);
@@ -27,9 +36,19 @@ const Auth = () => {
     e.preventDefault();
     if (!islogin) {
       dispatch(loginUser(login));
+      setLogin({
+        email: "",
+        password: "",
+      });
     } else {
       if (register.password === register.confirmPassword) {
         dispatch(registerUser(register, guide));
+        setRegister({
+          name: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+        });
       } else {
         console.log("password mismatch");
       }
@@ -59,6 +78,9 @@ const Auth = () => {
           <form onSubmit={handleSubmit}>
             {!islogin ? (
               <>
+                {loginLoading && <Loading />}
+                {loginSuccess && <Success success={" Login  Successfull"} />}
+                {loginError && <Error error={"Credential Error"} />}
                 <div class="mb-3">
                   <input
                     type="email"
@@ -84,6 +106,9 @@ const Auth = () => {
               </>
             ) : (
               <>
+                {registerLoading && <Loading />}
+                {registerSuccess && <Success success={"Register completed"} />}
+                {Registererror && <Error error={"Register failed"} />}
                 <div class="mb-3">
                   <input
                     type="email"

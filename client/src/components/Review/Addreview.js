@@ -18,10 +18,8 @@ const Addreview = () => {
   console.log(foundedReview);
 
   const email = useSelector((state) => state.loginUserReducer.currentUser.email);
-
   const [comment, setComment] = useState();
   const [currentValue, setCurrentValue] = useState();
-
   const [hoverValue, setHoverValue] = useState(undefined);
   const stars = Array(5).fill(0);
 
@@ -96,16 +94,17 @@ const Addreview = () => {
         <button onClick={hadnleReview} style={styles.button}>
           Submit
         </button>
+      </div>
 
-        {/* {!comment & !currentValue ? (
-          <button disabled style={styles.button}>
-            Submit
-          </button>
-        ) : (
-          <button onClick={hadnleReview} style={styles.button}>
-            Submit
-          </button>
-        )} */}
+      <div className="reviews">
+        <div class="card" style={{ width: "18rem" }}>
+          <div className="card-body">
+            <p className="card-text">
+              Some quick example text to build on the card title and make up the bulk
+              of the card's content.
+            </p>
+          </div>
+        </div>
       </div>
     </>
   );

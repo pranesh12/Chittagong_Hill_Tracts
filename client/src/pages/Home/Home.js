@@ -13,6 +13,7 @@ import { changeLanguage } from "../../Redux/actions/changingLanguage";
 import englishLanguageData from "../../data/englishLanguageData";
 import chakmaLanguageData from "../../data/chakmaLanguageData";
 import Comment from "../../components/Review/ShowReview";
+import Error from "../../components/Loaders/Error";
 
 const Home = () => {
   const dispatch = useDispatch();

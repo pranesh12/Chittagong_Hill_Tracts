@@ -6,9 +6,8 @@ const privateKey = process.env.PRIVATEKEY;
 
 const register = async (req, res) => {
   try {
-    const { name, email, password, confirmPassword } = req.body.registerData;
+    const { name, email, password } = req.body.registerData;
     const { guide } = req.body;
-
     const hasAccount = await userModel.findOne({ email: email });
     if (!hasAccount) {
       const hashedPassword = await bcrypt.hash(password, 12);
@@ -29,10 +28,10 @@ const register = async (req, res) => {
         isGuide: newUser.isGuide,
         token,
       };
-      res.json(result);
+      return res.json(result);
     }
   } catch (error) {
-    res.send(error);
+    return res.status(404).json({ error: "Register Failed" });
   }
 };
 
@@ -40,9 +39,9 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     const oldUser = await userModel.findOne({ email: email });
-    if (!oldUser) res.status(404).json({ meassage: "No user found" });
+    if (!oldUser) return res.status(401).json({ msg: "Unvalid Credential" });
     const matchPassword = await bcrypt.compare(password, oldUser.password);
-    if (!matchPassword) res.status(404).json("Passord incorrect");
+    if (!matchPassword) return res.status(401).json({ msg: "Unvalid Credential" });
 
     const token = jwt.sign({ email: oldUser.name, _id: oldUser._id }, privateKey, {
       expiresIn: "24h",
@@ -55,10 +54,10 @@ const login = async (req, res) => {
       isGuide: oldUser.isGuide,
       token,
     };
-    console.log(token);
-    res.status(200).json(result);
+
+    return res.status(200).json(result);
   } catch (error) {
-    res.send(error);
+    return res.status(401).json({ msg: "Unvalid Credential" });
   }
 };
 
@@ -67,7 +66,6 @@ const userList = async (req, res) => {
   try {
     const user = await userModel.findOne({ email });
     const isAdmin = user.isAdmin;
-    console.log(isAdmin);
     if (isAdmin) {
       const foundedUserlist = await userModel.find({}).select("email name");
       res.status(200).send(foundedUserlist);

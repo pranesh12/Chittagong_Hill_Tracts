@@ -22,7 +22,7 @@ const addReview = async (req, res) => {
       },
     });
     console.log("Add comment hitted");
-    res.json({ meassage: "review created successfully" });
+    res.json({ meassage: "Your review added succesfully" });
   } catch (error) {
     console.log(error);
   }
