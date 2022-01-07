@@ -14,7 +14,7 @@ const Auth = () => {
   const registerUserState = useSelector((state) => state.registerUserReducer);
   const loginUserState = useSelector((state) => state.loginUserReducer);
   //Errors from register and loginState
-  const { registerLoading, registerSuccess, Registererror } = registerUserState;
+  const { registerLoading, registerSuccess, registerError } = registerUserState;
   const { loginLoading, loginSuccess, loginError } = loginUserState;
 
   console.log(uesrInfo);
@@ -108,7 +108,7 @@ const Auth = () => {
               <>
                 {registerLoading && <Loading />}
                 {registerSuccess && <Success success={"Register completed"} />}
-                {Registererror && <Error error={"Register failed"} />}
+                {registerError && <Error error={"Register failed"} />}
                 <div class="mb-3">
                   <input
                     type="email"

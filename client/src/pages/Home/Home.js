@@ -8,12 +8,15 @@ import Navbar from "../../components/Navbar/Navbar";
 import Section from "../../components/Section/Section";
 import { getArticleData } from "../../Redux/actions/article";
 import { useSelector } from "react-redux";
-import SubArticle from "../../components/SubArticle/SubArticle";
+// import SubArticle from "../../components/SubArticle/SubArticle";
 import { changeLanguage } from "../../Redux/actions/changingLanguage";
 import englishLanguageData from "../../data/englishLanguageData";
 import chakmaLanguageData from "../../data/chakmaLanguageData";
 import Comment from "../../components/Review/ShowReview";
-import Error from "../../components/Loaders/Error";
+import { Suspense } from "react";
+const SubArticle = React.lazy(() =>
+  import("../../components/SubArticle/SubArticle")
+);
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -35,7 +38,10 @@ const Home = () => {
           <Banner props={chakmaLanguageData} />
           <Section props={chakmaLanguageData} />
           <About props={chakmaLanguageData} />
-          <SubArticle data={articleData} />
+          <Suspense fallback={() => <div>Loading.....</div>}>
+            <SubArticle data={articleData} />
+          </Suspense>
+
           <Comment />
           <Information props={chakmaLanguageData} />
           <Footer props={chakmaLanguageData} />
@@ -45,7 +51,9 @@ const Home = () => {
           <Banner props={englishLanguageData} />
           <Section props={englishLanguageData} />
           <About props={englishLanguageData} />
-          <SubArticle data={articleData} />
+          <Suspense fallback={() => <div>Loading.....</div>}>
+            <SubArticle data={articleData} />
+          </Suspense>
           <Comment />
           <Information props={englishLanguageData} />
           <Footer props={englishLanguageData} />

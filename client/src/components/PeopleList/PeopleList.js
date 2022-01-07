@@ -8,8 +8,8 @@ const PeopleList = () => {
   const filterTourGuides = useSelector(
     (state) => state.findGuidesByDistrictAndPlaceReducer?.fetchDAta?.data
   );
-  console.log(filterTourGuides);
 
+  console.log(filterTourGuides);
   return (
     <>
       <Navbar />

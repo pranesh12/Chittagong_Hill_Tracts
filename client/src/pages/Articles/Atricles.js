@@ -14,8 +14,6 @@ const Atricles = () => {
     dispatch(getArticleData());
   }, [dispatch]);
 
-  console.log(courseState);
-
   return (
     <>
       <Navbar />

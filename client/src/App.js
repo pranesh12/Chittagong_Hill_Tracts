@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Details from "./components/Details/Details";
+import React from "react";
+// import Details from "./components/Details/Details";
 import AddCourses from "./pages/Admin/AddCourses";
 import AddTeacher from "./pages/Admin/AddTeacher";
 import Admin from "./pages/Admin/Admin.jsx";
@@ -20,8 +21,15 @@ import EditTourGuide from "./pages/Admin/EditTourGuide";
 import Addtourguide from "./pages/TourGuide/Addtourguide";
 import TourguidePrivateRoute from "./pages/PrivateRoute/TourguidePrivateRoute";
 import Addreview from "./components/Review/Addreview";
+import { useRouteMatch } from "react-router-dom";
+import { Suspense } from "react";
+import ErrorBoundary from "./components/Error/ErrorBoundary";
+// const Home = React.lazy(() => import("./pages/Home/Home"));
+const Details = React.lazy(() => import("./components/Details/Details"));
 
 function App() {
+  const { path } = useRouteMatch();
+
   return (
     <>
       <Router>
@@ -43,7 +51,7 @@ function App() {
         >
           <Switch>
             <Route exact path="/auth" component={Auth}></Route>
-            <Route exact path="/:name/:id" component={Details}></Route>
+
             <Route exact path="/articles" component={Atricles}></Route>
             <TourguidePrivateRoute
               path="/addinfo"
@@ -53,9 +61,14 @@ function App() {
             <Route exact path="/khagrachari" component={Khagrachari}></Route>
             <Route exact path="/rangamati" component={Rangamati}></Route>
             <Route exact path="/bandarban" component={Bandarban}></Route>
-            <Route path="/filterTourguidesList" component={PeopleList}></Route>
+            <Route path={`/guides`} component={PeopleList}></Route>
             <Route exact path="/:guideId" component={PeopleDetails}></Route>
             <Route exact path="/" component={Home}></Route>
+            <ErrorBoundary>
+              <Suspense fallback={() => <div>Loading</div>}>
+                <Route exact path="/:name/:id" component={Details}></Route>
+              </Suspense>
+            </ErrorBoundary>
           </Switch>
         </Route>
       </Router>

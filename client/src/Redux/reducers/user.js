@@ -57,7 +57,7 @@ export const registerUserReducer = (state, action) => {
     case REGISTER_USER_FAILED:
       return {
         ...state,
-        Registererror: action.payload,
+        registerError: action.payload,
         registerLoading: false,
       };
     default:

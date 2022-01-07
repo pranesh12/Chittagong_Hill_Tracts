@@ -15,8 +15,6 @@ const Addreview = () => {
     (state) => state.findReviewByMailReducer.fetchData
   );
 
-  console.log(foundedReview);
-
   const email = useSelector((state) => state.loginUserReducer.currentUser.email);
   const [comment, setComment] = useState();
   const [currentValue, setCurrentValue] = useState();

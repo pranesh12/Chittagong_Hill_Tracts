@@ -135,7 +135,7 @@ export const findTourGuideByEmail = () => async (dispatch, getState) => {
 //editTour guide by Tourguide
 export const editTourGuideByGuide = (updataedData) => async (dispatch, getState) => {
   const email = getState().loginUserReducer.currentUser.email;
-  console.log("edit by tour happending");
+
   dispatch({ type: EDIT_TOUR_GUIDE_BYTOURGUIDE });
   try {
     const res = await axios.put(

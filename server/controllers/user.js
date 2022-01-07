@@ -31,7 +31,7 @@ const register = async (req, res) => {
       return res.json(result);
     }
   } catch (error) {
-    return res.status(404).json({ error: "Register Failed" });
+    return res.status(404).json({ msg: "Register Failed" });
   }
 };
 

@@ -27,7 +27,7 @@ export const registerUser = (registerData, guide) => async (dispatch) => {
     localStorage.setItem("currentUser", JSON.stringify(res.data));
     // window.location = "/";
   } catch (error) {
-    dispatch({ type: REGISTER_USER_FAILED, payload: error });
+    dispatch({ type: REGISTER_USER_FAILED, payload: error.message });
   }
 };
 
@@ -39,7 +39,7 @@ export const loginUser = (logindata) => async (dispatch) => {
 
     localStorage.setItem("currentUser", JSON.stringify(res.data));
   } catch (error) {
-    dispatch({ type: LOGIN_USER_FAILED, payload: error });
+    dispatch({ type: LOGIN_USER_FAILED, payload: error.message });
   }
 };
 
